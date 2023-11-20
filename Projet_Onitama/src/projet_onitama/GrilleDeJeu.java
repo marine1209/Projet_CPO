@@ -12,7 +12,7 @@ public class GrilleDeJeu {
     CaseGrille[][] matriceCellules;
     int nbLignes;
     int nbColonnes;
-    int dimension=5;
+    
     
     
     /**
@@ -22,15 +22,19 @@ public class GrilleDeJeu {
      */
     
     public GrilleDeJeu(int nbLignes, int nbColonnes) {
-        this.nbLignes = nbLignes;
-        this.nbColonnes = nbColonnes;
+        this.nbLignes = 5;
+        this.nbColonnes = 5;
         
-        matriceCellules=new CaseGrille[nbLignes][nbColonnes];
-        for (int i = 0; i < nbLignes; i++) {
-            for (int j = 0; j < nbColonnes; j++) {
+        matriceCellules=new CaseGrille[5][5];
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
                 // Création d'un nouvel objet de type CelluleLumineuse pour chaque cellule
-                this.matriceCellules[i][j] = new CaseGrille();
+                this.matriceCellules[i][j] = new CaseGrille(false);
             }
         }
     }
+    
+    
+    
+    
 }
