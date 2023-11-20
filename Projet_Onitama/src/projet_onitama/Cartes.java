@@ -10,43 +10,77 @@ package projet_onitama;
  */
 public class Cartes {
     CaseGrille[][]matriceCellules;
-    int nbLignes;
-    int nbColonnes;
+    int mouv=0;
+    
+    int i;
+    int j;
     public Cartes(CaseGrille[][] matriceCellules) {
         this.matriceCellules = matriceCellules;
+        
+    }
+    public void mouv_droite(int position_Ccase){
+        matriceCellules[i][position_Ccase]=matriceCellules[i][position_Ccase+1];               
     }
     
+    public void mouv_gauche(int position_Ccase){
+        matriceCellules[i][position_Ccase]=matriceCellules[i][position_Ccase-1];       
+    }
+    
+    public void mouv_haut(int position_Lcase){
+        matriceCellules[position_Lcase][j]=matriceCellules[position_Lcase+1][j];
+    }
+    
+    public void mouv_bas(int position_Lcase){
+        matriceCellules[position_Lcase][j]=matriceCellules[position_Lcase-1][j];
+    }
+    
+    public void mouv_diag_HDroite(int position_Ccase,int position_Lcase){
+        matriceCellules[position_Lcase][position_Ccase]=matriceCellules[position_Lcase+1][position_Ccase+1];
+    }
+    
+    public void mouv_diag_HGauche(int position_Ccase,int position_Lcase){
+        matriceCellules[position_Lcase][position_Ccase]=matriceCellules[position_Lcase+1][position_Ccase-1];
+    }
+    
+    public void mouv_diag_BGauche(int position_Ccase,int position_Lcase){
+        matriceCellules[position_Lcase][position_Ccase]=matriceCellules[position_Lcase-1][position_Ccase-1];
+    }
+    
+    public void mouv_diag_BDroite(int position_Ccase,int position_Lcase){
+        matriceCellules[position_Lcase][position_Ccase]=matriceCellules[position_Lcase-1][position_Ccase+1];
+    }
     public void Boar(){
-        int mouv=0;
+        
         switch (mouv){
-        case 1:{
-            //une case vers la droite
-            for (int i=0; i<nbLignes; i++){
-                for (int j=0; j<nbColonnes;j++){
-                    //i+=1;
-                    j+=1;
-                }
-            }
+        case 1:
+            this.mouv_droite(position_Ccase);
             break;
-        }
-        case 2:{
+        
+        case 2:
             //une case en haut
-            for (int i=0; i<nbLignes; i++){
-                for (int j=0; j<nbColonnes;j++){
-                    i+=1;
-                }
-            }
-        }
-        case 3:{
-            //une case à gauche
-            for (int i=0; i<nbLignes; i++){
-                for (int j=0; j<nbColonnes;j++){
-                    j-=1;
-                }
-            }
+            this.mouv_haut();
             break;
-        }
+        
+        case 3:
+            this.mouv_gauche();
+            break;
+        
         
         }
     }
+    
+    public void Cobra(){
+        switch(mouv){
+            case 1:
+                this.mouv_gauche();
+                break;
+            case 2:
+                this.mouv_diag_HDroite();
+                break;
+            case 3:
+                this.mouv_diag_BDroite();
+        }
+    }
+    
+    
 }
