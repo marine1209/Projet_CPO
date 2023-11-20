@@ -12,6 +12,12 @@ public class Pions {
     int position_ligne;
     int position_colonne; 
     boolean eleve; 
+
+    public Pions(int position_ligne, int position_colonne, boolean eleve) {
+        this.position_ligne = position_ligne;
+        this.position_colonne = position_colonne;
+        this.eleve = eleve;
+    }
     
     
 }
