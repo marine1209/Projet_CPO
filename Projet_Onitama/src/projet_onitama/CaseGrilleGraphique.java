@@ -39,9 +39,20 @@ public class CaseGrilleGraphique extends JButton {
             if (pion.couleur == "R") {
                 if (pion.eleve == true) {
                     g.setColor(Color.red);
+                    g.fillOval(0, 0, 40, 40);
+                } else {
+                    g.setColor(Color.red);
+                    g.fillRect(0, 0, 40, 40);
+                }
+            } else if (pion.couleur == "B") {
+                if (pion.eleve == true) {
+                    g.setColor(Color.blue);
+                    g.fillOval(0, 0, 40, 40);
+                } else {
+                    g.setColor(Color.blue);
+                    g.fillRect(0, 0, 40, 40);
                 }
             }
-            g.setColor(Color.yellow);
         }
         g.fillOval(2, 2, longueur - 4, hauteur - 4);
     } 
