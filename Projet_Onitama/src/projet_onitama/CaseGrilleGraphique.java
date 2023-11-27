@@ -15,11 +15,17 @@ import javax.swing.JButton;
 public class CaseGrilleGraphique extends JButton {
     
     CaseGrille caseGrilleAssociee;
+    Pions pion;
     
     
     /*public String quiOccupeLaCase() {
         
     }//*/
+
+    public CaseGrilleGraphique(CaseGrille caseGrilleAssociee) {
+        this.caseGrilleAssociee = caseGrilleAssociee;
+    }
+    
     
     
     @Override
@@ -27,9 +33,14 @@ public class CaseGrilleGraphique extends JButton {
         super.paintComponent(g);
         int longueur = this.getWidth();
         int hauteur = this.getHeight();
-        if (caseGrilleAssociee.estOccupee() == true) {
-            g.setColor(Color.red);
+        if (caseGrilleAssociee.estOccupee() == false) {
+            g.setColor(Color.gray);
         } else {
+            if (pion.couleur == "R") {
+                if (pion.eleve == true) {
+                    g.setColor(Color.red);
+                }
+            }
             g.setColor(Color.yellow);
         }
         g.fillOval(2, 2, longueur - 4, hauteur - 4);

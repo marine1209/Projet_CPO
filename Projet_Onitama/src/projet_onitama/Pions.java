@@ -11,7 +11,8 @@ package projet_onitama;
 public class Pions {
     int position_ligne;
     int position_colonne; 
-    boolean eleve; 
+    boolean eleve;
+    String couleur;  //R pour rouge et B pour bleu
 
     public Pions(int position_ligne, int position_colonne, boolean eleve) {
         this.position_ligne = position_ligne;

@@ -64,7 +64,7 @@ public class Cartes {
     }
     
     public void Boar(){
-        
+        this.nom = "Boar";
         switch (mouv){
         case 1:
             this.mouv_droite(position_Ccase,1);
