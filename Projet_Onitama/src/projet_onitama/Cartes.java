@@ -21,10 +21,9 @@ public class Cartes {
         this.matriceCellules = matriceCellules;
         this.position_Ccase=position_Ccase;
         this.position_Lcase=position_Lcase;
-        
     }
     public void mouv_droite(int position_Ccase, int m){
-        matriceCellules[i][position_Ccase]=matriceCellules[i][position_Ccase+m];               
+        matriceCellules[i][position_Ccase]=matriceCellules[i][position_Ccase+m];
     }
     
     public void mouv_gauche(int position_Ccase, int n){
