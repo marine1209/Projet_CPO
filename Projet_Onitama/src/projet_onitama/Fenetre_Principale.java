@@ -44,7 +44,11 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     private void initComponents() {
 
         PanneauGrille = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        PanneauCarteHautGauche = new javax.swing.JPanel();
+        PanneauCarteHautDroite = new javax.swing.JPanel();
+        PanneauCarteBasGauche = new javax.swing.JPanel();
+        PanneauCarteBasDroite = new javax.swing.JPanel();
+        PanneauCarteGauche = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,17 +65,78 @@ public class Fenetre_Principale extends javax.swing.JFrame {
             .addGap(0, 211, Short.MAX_VALUE)
         );
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
+        PanneauCarteHautGauche.setBackground(new java.awt.Color(204, 204, 255));
+        PanneauCarteHautGauche.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        javax.swing.GroupLayout PanneauCarteHautGaucheLayout = new javax.swing.GroupLayout(PanneauCarteHautGauche);
+        PanneauCarteHautGauche.setLayout(PanneauCarteHautGaucheLayout);
+        PanneauCarteHautGaucheLayout.setHorizontalGroup(
+            PanneauCarteHautGaucheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 88, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+        PanneauCarteHautGaucheLayout.setVerticalGroup(
+            PanneauCarteHautGaucheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 88, Short.MAX_VALUE)
+        );
+
+        PanneauCarteHautDroite.setBackground(new java.awt.Color(204, 204, 255));
+        PanneauCarteHautDroite.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        PanneauCarteHautDroite.setPreferredSize(new java.awt.Dimension(88, 88));
+
+        javax.swing.GroupLayout PanneauCarteHautDroiteLayout = new javax.swing.GroupLayout(PanneauCarteHautDroite);
+        PanneauCarteHautDroite.setLayout(PanneauCarteHautDroiteLayout);
+        PanneauCarteHautDroiteLayout.setHorizontalGroup(
+            PanneauCarteHautDroiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 86, Short.MAX_VALUE)
+        );
+        PanneauCarteHautDroiteLayout.setVerticalGroup(
+            PanneauCarteHautDroiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 86, Short.MAX_VALUE)
+        );
+
+        PanneauCarteBasGauche.setBackground(new java.awt.Color(204, 204, 255));
+        PanneauCarteBasGauche.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        PanneauCarteBasGauche.setPreferredSize(new java.awt.Dimension(88, 88));
+
+        javax.swing.GroupLayout PanneauCarteBasGaucheLayout = new javax.swing.GroupLayout(PanneauCarteBasGauche);
+        PanneauCarteBasGauche.setLayout(PanneauCarteBasGaucheLayout);
+        PanneauCarteBasGaucheLayout.setHorizontalGroup(
+            PanneauCarteBasGaucheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 86, Short.MAX_VALUE)
+        );
+        PanneauCarteBasGaucheLayout.setVerticalGroup(
+            PanneauCarteBasGaucheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 86, Short.MAX_VALUE)
+        );
+
+        PanneauCarteBasDroite.setBackground(new java.awt.Color(204, 204, 255));
+        PanneauCarteBasDroite.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        PanneauCarteBasDroite.setPreferredSize(new java.awt.Dimension(88, 88));
+
+        javax.swing.GroupLayout PanneauCarteBasDroiteLayout = new javax.swing.GroupLayout(PanneauCarteBasDroite);
+        PanneauCarteBasDroite.setLayout(PanneauCarteBasDroiteLayout);
+        PanneauCarteBasDroiteLayout.setHorizontalGroup(
+            PanneauCarteBasDroiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 86, Short.MAX_VALUE)
+        );
+        PanneauCarteBasDroiteLayout.setVerticalGroup(
+            PanneauCarteBasDroiteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 86, Short.MAX_VALUE)
+        );
+
+        PanneauCarteGauche.setBackground(new java.awt.Color(204, 204, 255));
+        PanneauCarteGauche.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        PanneauCarteGauche.setPreferredSize(new java.awt.Dimension(88, 88));
+
+        javax.swing.GroupLayout PanneauCarteGaucheLayout = new javax.swing.GroupLayout(PanneauCarteGauche);
+        PanneauCarteGauche.setLayout(PanneauCarteGaucheLayout);
+        PanneauCarteGaucheLayout.setHorizontalGroup(
+            PanneauCarteGaucheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 86, Short.MAX_VALUE)
+        );
+        PanneauCarteGaucheLayout.setVerticalGroup(
+            PanneauCarteGaucheLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 86, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -79,21 +144,40 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(185, 185, 185)
-                .addComponent(PanneauGrille, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(234, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89))
+                .addGap(67, 67, 67)
+                .addComponent(PanneauCarteGauche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(PanneauCarteBasGauche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(PanneauCarteBasDroite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(PanneauCarteHautGauche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(PanneauCarteHautDroite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PanneauGrille, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(240, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(PanneauGrille, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanneauCarteHautDroite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanneauCarteHautGauche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(PanneauGrille, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addComponent(PanneauCarteGauche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanneauCarteBasGauche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PanneauCarteBasDroite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();
@@ -135,7 +219,11 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanneauCarteBasDroite;
+    private javax.swing.JPanel PanneauCarteBasGauche;
+    private javax.swing.JPanel PanneauCarteGauche;
+    private javax.swing.JPanel PanneauCarteHautDroite;
+    private javax.swing.JPanel PanneauCarteHautGauche;
     private javax.swing.JPanel PanneauGrille;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
