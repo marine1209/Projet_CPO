@@ -9,21 +9,16 @@ package projet_onitama;
  * @author marin
  */
 public class Pions {
-    boolean Sensei; 
-    int position_ligne;
-    int position_colonne; 
-    boolean eleve;
-    String couleur;  //R pour rouge et B pour
+    private int position_ligne;
+    private int position_colonne; 
+    private boolean eleve;
+    private String couleur;  //R pour rouge et B pour bleu
 
     public Pions(int position_ligne, int position_colonne, boolean eleve, int nb_eleve, int nb_maitre) {
         this.position_ligne = position_ligne;
         this.position_colonne = position_colonne;
         this.eleve = eleve;
   
-    }
-
-    public boolean get_eleve() {
-        return eleve;
     }
 
     public int getPosition_ligne() {
@@ -33,9 +28,34 @@ public class Pions {
     public int getPosition_colonne() {
         return position_colonne;
     }
-   
-    public boolean getSensei(){
-        return Sensei; 
+
+    public boolean estEleve() {
+        return eleve;
     }
 
+    public String getCouleur() {
+        return couleur;
+    }
+    
+    //CREER LA METHODE POUR CHECKER QU'UNE CASE VOULUE EST BIEN DANS LA GRILLE
+    /*public boolean verifierCaseDansGrille(int position_ligne, int position_colonne, Cartes carte) {
+        String animal = carte.nom;
+        
+    }*/
+    public boolean verif_position(int ligne, int colonne){
+        if (ligne>4 || colonne>4 || ligne<0 || colonne<0){
+            return false;
+        }
+        else 
+            return true;
+    }
+    public void changement_coord (int ligne, int colonne){
+         if (verif_position(ligne, colonne)==true){
+             this.position_colonne=colonne;
+             this.position_ligne=ligne;
+         }
+         
+    }
+    
 }
+    

@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -24,7 +24,7 @@ public class GrilleDeJeu {
     public GrilleDeJeu(int nbLignes, int nbColonnes) {
         this.nbLignes = 5;
         this.nbColonnes = 5;
-        
+       
         matriceCellules=new CaseGrille[5][5];
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {

@@ -36,16 +36,16 @@ public class CaseGrilleGraphique extends JButton {
         if (caseGrilleAssociee.estOccupee() == false) {
             g.setColor(Color.gray);
         } else {
-            if (pion.couleur == "R") {
-                if (pion.eleve == true) {
+            if (pion.getCouleur() == "R") {
+                if (pion.estEleve() == true) {
                     g.setColor(Color.red);
                     g.fillOval(0, 0, 40, 40);
                 } else {
                     g.setColor(Color.red);
                     g.fillRect(0, 0, 40, 40);
                 }
-            } else if (pion.couleur == "B") {
-                if (pion.eleve == true) {
+            } else if (pion.getCouleur() == "B") {
+                if (pion.estEleve() == true) {
                     g.setColor(Color.blue);
                     g.fillOval(0, 0, 40, 40);
                 } else {
