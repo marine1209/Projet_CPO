@@ -5,9 +5,15 @@
 package projet_onitama;
 
 import java.awt.GridLayout;
+import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import static java.lang.Math.random;
+import static java.lang.StrictMath.random;
+import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JButton;
+import java.util.Random;
 
 /**
  *
@@ -33,6 +39,45 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Méthode qui tire 5 cartes aléatoirement 
+     * @return un arraylist contenant les 5 cartes
+     */
+    public ArrayList tirerCartesAléatoire() {
+        ArrayList<String> tab = new ArrayList<String>();
+        tab.add("Boar");
+        tab.add("Cobra");
+        tab.add("Crab");
+        tab.add("Crane");
+        tab.add("Dragon");
+        tab.add("Eel");
+        tab.add("Elephant");
+        tab.add("Frog");
+        tab.add("Goose");
+        tab.add("Horse");
+        tab.add("Mantis");
+        tab.add("Monkey");
+        tab.add("Ox");
+        tab.add("Rabbit");
+        tab.add("Rooster");
+        tab.add("Tiger");
+        ArrayList<String> cartes_tirees = new ArrayList<String>();
+        Random random = new Random();
+        for (int i = 0 ; i<5 ; i++) {
+            int temp = random.nextInt(16);
+            String carte_temp = tab.get(temp);
+            cartes_tirees.add(carte_temp);
+            tab.remove(carte_temp);
+        }
+        return cartes_tirees;
+    }
+        
+        
+    }
+    
+    /*public String tirerCarteAleatoire() {
+        
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
