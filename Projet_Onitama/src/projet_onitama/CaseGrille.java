@@ -11,6 +11,7 @@ package projet_onitama;
 public class CaseGrille {
     
     private boolean etat;
+    private Pions pion_associe;
 
     public CaseGrille(boolean etat) {
         this.etat = false;
@@ -41,6 +42,10 @@ public class CaseGrille {
 
     public boolean getEtat() {
         return etat;
+    }
+
+    public Pions getPion_associe() {
+        return pion_associe;
     }
     
     
