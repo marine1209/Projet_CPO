@@ -42,6 +42,11 @@ public class Pions {
         
     }*/
     
+    public void deplacerPion(int ligne, int colonne) {
+        
+    }
+    
+    
     public boolean verif_position(int ligne, int colonne){
         if (ligne>4 || colonne>4 || ligne<0 || colonne<0){
             return false;
@@ -49,6 +54,7 @@ public class Pions {
         else
             return true;
     }
+    
     public void changement_coord (int ligne, int colonne){
         if (verif_position(ligne, colonne)==true){
             this.position_colonne=colonne;
@@ -56,7 +62,8 @@ public class Pions {
         }   
     }
     
-    public void mangerPion() {
+    public void deplacerPion(Pions pion) {
         
     }
+    
 }

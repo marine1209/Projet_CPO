@@ -4,6 +4,8 @@
  */
 package projet_onitama;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author marie
@@ -62,7 +64,7 @@ public class Cartes {
         matriceCellules[position_Lcase][position_Ccase]=matriceCellules[position_Lcase-1][position_Ccase-2];
     }
     
-    public void Boar(){
+    public void Boar(int ligne, int colonne){
         this.nom = "Boar";
         switch (mouv){
         case 1:
@@ -81,6 +83,7 @@ public class Cartes {
         
         }
     }
+
     
     public void Cobra(){
         this.nom = "Cobra";
