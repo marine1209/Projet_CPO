@@ -42,20 +42,6 @@ public class Pions {
         String animal = carte.nom;
         
     }*/
-    public boolean verif_position(int ligne, int colonne){
-        if (ligne>4 || colonne>4 || ligne<0 || colonne<0){
-            return false;
-        }
-        else 
-            return true;
-    }
-    public void changement_coord (int ligne, int colonne){
-         if (verif_position(ligne, colonne)==true){
-             this.position_colonne=colonne;
-             this.position_ligne=ligne;
-         }
-         
-    }
     
     public void deplacerPion(int ligne, int colonne) {
         
