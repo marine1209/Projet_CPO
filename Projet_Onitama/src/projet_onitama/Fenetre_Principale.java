@@ -4,6 +4,7 @@
  */
 package projet_onitama;
 
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.List;
 import java.awt.event.ActionEvent;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JButton;
 import java.util.Random;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -45,7 +47,9 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         
         // création du panneau de boutons verticaux (pour les lignes)
         for (i = 0; i < 2; i++) {
-            JButton JRcarte1 = new JButton();
+            //ImageIcon dragonImage=new ImageIcon("C:\\Users\\marie\\Documents\\EPF\\2A\\CPO\\cartes onitama.jpg");
+            //JButton JRcarte1 = new JButton(dragonImage);
+            //frame.getContentPane().add(JRcarte1, BorderLayout.CENTER);
             JButton JRcarte2 = new JButton();
                //JRcarte1.setText("→");
             ActionListener ecouteurClick = new ActionListener() {
@@ -300,13 +304,13 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JRcarte2ActionPerformed
 
-    private void JRcarte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRcarte1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JRcarte1ActionPerformed
-
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void JRcarte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRcarte1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JRcarte1ActionPerformed
 
     /**
      * @param args the command line arguments
