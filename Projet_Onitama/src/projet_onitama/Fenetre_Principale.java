@@ -58,7 +58,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
             //PanneauCartesHaut.add(bouton_ligne);
         }    
         PanneauCartesBas.setLayout(new GridLayout(1, 2));
-        getContentPane().add(PanneauCartesBas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110));
+        getContentPane().add(PanneauCartesBas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 2 * 40, 1 * 40));
         this.pack();
         this.revalidate();
         // création du panneau de boutons verticaux (pour les lignes)
