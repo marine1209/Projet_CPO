@@ -4,7 +4,11 @@
  */
 package projet_onitama;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,21 +27,27 @@ public class Cartes {
         this.matriceCellules = matriceCellules;
         this.position_Ccase=position_Ccase;
         this.position_Lcase=position_Lcase;
+        try {
+            Method method = this.getClass().getMethod("Cobra");
+            method.invoke(this);
+        } catch (Exception ex) {
+        }
+
     }
-    public void mouv_droite(int position_Ccase, int m){
-        matriceCellules[i][position_Ccase]=matriceCellules[i][position_Ccase+m];
-    }
-    
-    public void mouv_gauche(int position_Ccase, int n){
-        matriceCellules[i][position_Ccase]=matriceCellules[i][position_Ccase-n];       
-    }
-    
-    public void mouv_haut(int position_Lcase, int c){
-        matriceCellules[position_Lcase][j]=matriceCellules[position_Lcase-c][j];
+    public void mouv_droite(int position_Lcase, int position_Ccase){
+        matriceCellules[position_Lcase][position_Ccase]=matriceCellules[position_Lcase][position_Ccase+1];
     }
     
-    public void mouv_bas(int position_Lcase, int c){
-        matriceCellules[position_Lcase][j]=matriceCellules[position_Lcase+c][j];
+    public void mouv_gauche(int position_Lcase, int position_Ccase){
+        matriceCellules[position_Lcase][position_Ccase]=matriceCellules[position_Lcase][position_Ccase-1];       
+    }
+    
+    public void mouv_haut(int position_Lcase, int position_Ccase){
+        matriceCellules[position_Lcase][position_Ccase]=matriceCellules[position_Lcase-1][position_Ccase];
+    }
+    
+    public void mouv_bas(int position_Lcase, int position_Ccase){
+        matriceCellules[position_Lcase][position_Ccase]=matriceCellules[position_Lcase+1][position_Ccase];
     }
     
     public void mouv_diag_HDroite(int position_Ccase,int position_Lcase){
