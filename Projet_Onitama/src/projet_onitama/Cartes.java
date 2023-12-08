@@ -34,20 +34,20 @@ public class Cartes {
         }
 
     }
-    public void mouv_droite(int position_Ccase, int m){
-        matriceCellules[i][position_Ccase]=matriceCellules[i][position_Ccase+m];
+    public void mouv_droite(int position_Lcase, int position_Ccase){
+        matriceCellules[position_Lcase][position_Ccase]=matriceCellules[position_Lcase][position_Ccase+1];
     }
     
-    public void mouv_gauche(int position_Ccase, int n){
-        matriceCellules[i][position_Ccase]=matriceCellules[i][position_Ccase-n];       
+    public void mouv_gauche(int position_Lcase, int position_Ccase){
+        matriceCellules[position_Lcase][position_Ccase]=matriceCellules[position_Lcase][position_Ccase-1];       
     }
     
-    public void mouv_haut(int position_Lcase, int c){
-        matriceCellules[position_Lcase][j]=matriceCellules[position_Lcase-c][j];
+    public void mouv_haut(int position_Lcase, int position_Ccase){
+        matriceCellules[position_Lcase][position_Ccase]=matriceCellules[position_Lcase-1][position_Ccase];
     }
     
-    public void mouv_bas(int position_Lcase, int c){
-        matriceCellules[position_Lcase][j]=matriceCellules[position_Lcase+c][j];
+    public void mouv_bas(int position_Lcase, int position_Ccase){
+        matriceCellules[position_Lcase][position_Ccase]=matriceCellules[position_Lcase+1][position_Ccase];
     }
     
     public void mouv_diag_HDroite(int position_Ccase,int position_Lcase){

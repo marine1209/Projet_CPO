@@ -29,23 +29,28 @@ public class GrilleDeJeu {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 // Création d'un nouvel objet de type CelluleLumineuse pour chaque cellule
-                this.matriceCellules[i][j] = new CaseGrille(false);
-            }
-        }
-    }
+              if (i==0 && j==2){  
+                this.matriceCellules[i][j] = new CaseGrille(true);
+                this.matriceCellules[i][j].pion_associe = new Pions (i, j, false, "rouge");   
+              }
+              if (0==i && j!=2){
+                this.matriceCellules[i][j] = new CaseGrille(true);
+                this.matriceCellules[i][j].pion_associe = new Pions (i, j, true, "rouge");      
+              }
+              if (i==4 && j==2){  
+                this.matriceCellules[i][j] = new CaseGrille(true);
+                this.matriceCellules[i][j].pion_associe = new Pions (i, j, false, "bleu");   
+              }
+              if (i==4 && j!=2){
+                this.matriceCellules[i][j] = new CaseGrille(true);
+                this.matriceCellules[i][j].pion_associe = new Pions (i, j, true, "bleu");      
+              }
+              
+              
+              
+    }   
     
-    public boolean peutManger (int ligne, int colonne, Pions pion) {
-        if (matriceCellules[ligne][colonne].estOccupee() == true) {
-            if (matriceCellules[ligne][colonne].getPion_associe().getCouleur() != pion.getCouleur()) {
-                return true;
-            }
-            return false;
-        }
-
-
-        return true;
-    }
     
-    
-    
+}
+}
 }
