@@ -37,11 +37,11 @@ public class GrilleDeJeu {
                 this.matriceCellules[i][j] = new CaseGrille(true);
                 this.matriceCellules[i][j].pion_associe = new Pions (i, j, true, "rouge");      
               }
-              if (i==0 && j==2){  
+              if (i==4 && j==2){  
                 this.matriceCellules[i][j] = new CaseGrille(true);
                 this.matriceCellules[i][j].pion_associe = new Pions (i, j, false, "bleu");   
               }
-              if (i==0 && j!=2){
+              if (i==4 && j!=2){
                 this.matriceCellules[i][j] = new CaseGrille(true);
                 this.matriceCellules[i][j].pion_associe = new Pions (i, j, true, "bleu");      
               }
