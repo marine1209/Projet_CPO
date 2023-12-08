@@ -24,7 +24,7 @@ public class GrilleDeJeu {
     public GrilleDeJeu(int nbLignes, int nbColonnes) {
         this.nbLignes = 5;
         this.nbColonnes = 5;
-       
+         
         matriceCellules=new CaseGrille[5][5];
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
@@ -34,7 +34,15 @@ public class GrilleDeJeu {
         }
     }
     
-    
+    public boolean peutManger (int ligne, int colonne, Pions pion) {
+        if (matriceCellules[ligne][colonne].estOccupee() == true) {
+            if (matriceCellules[ligne][colonne].getPion_associe().getCouleur() != pion.getCouleur()) {
+                return true;
+            }
+            return false;
+        }
+        return true;
+    }
     
     
     
