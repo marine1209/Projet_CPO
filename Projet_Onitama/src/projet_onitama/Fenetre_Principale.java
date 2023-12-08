@@ -42,8 +42,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     
         PanneauCartesHaut.setLayout(new GridLayout(1, 2));
         getContentPane().add(PanneauCartesHaut, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70));
-        this.pack();
-        this.revalidate();
+        
         // création du panneau de boutons verticaux (pour les lignes)
         for (i = 0; i < 2; i++) {
             JButton JRcarte1 = new JButton();
@@ -144,6 +143,18 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         PanneauCartesBas = new javax.swing.JPanel();
         JBcarte1 = new javax.swing.JButton();
         JBcarte2 = new javax.swing.JButton();
+        PanneauInfoJR = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        PanneauInfoJB = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -161,6 +172,9 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         );
 
         PanneauCartesHaut.setBackground(new java.awt.Color(255, 102, 102));
+        PanneauCartesHaut.setAlignmentX(50.0F);
+        PanneauCartesHaut.setAlignmentY(100.0F);
+        PanneauCartesHaut.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JRcarte1.setText("JRcarte1");
         JRcarte1.setPreferredSize(new java.awt.Dimension(100, 80));
@@ -169,6 +183,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
                 JRcarte1ActionPerformed(evt);
             }
         });
+        PanneauCartesHaut.add(JRcarte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 107, 86));
 
         JRcarte2.setText("JRcarte2");
         JRcarte2.setPreferredSize(new java.awt.Dimension(100, 80));
@@ -177,33 +192,17 @@ public class Fenetre_Principale extends javax.swing.JFrame {
                 JRcarte2ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout PanneauCartesHautLayout = new javax.swing.GroupLayout(PanneauCartesHaut);
-        PanneauCartesHaut.setLayout(PanneauCartesHautLayout);
-        PanneauCartesHautLayout.setHorizontalGroup(
-            PanneauCartesHautLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanneauCartesHautLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(JRcarte1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(JRcarte2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        PanneauCartesHautLayout.setVerticalGroup(
-            PanneauCartesHautLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanneauCartesHautLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PanneauCartesHautLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JRcarte2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JRcarte1, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+        PanneauCartesHaut.add(JRcarte2, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 6, 109, 86));
 
         PanneauCartesBas.setBackground(new java.awt.Color(51, 153, 255));
+        PanneauCartesBas.setAlignmentX(50.0F);
+        PanneauCartesBas.setAlignmentY(0.5F);
         PanneauCartesBas.setPreferredSize(new java.awt.Dimension(240, 98));
+        PanneauCartesBas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JBcarte1.setText("JBcarte1");
         JBcarte1.setPreferredSize(new java.awt.Dimension(100, 80));
+        PanneauCartesBas.add(JBcarte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 106, 86));
 
         JBcarte2.setText("JBcarte2");
         JBcarte2.setPreferredSize(new java.awt.Dimension(100, 80));
@@ -212,27 +211,51 @@ public class Fenetre_Principale extends javax.swing.JFrame {
                 JBcarte2ActionPerformed(evt);
             }
         });
+        PanneauCartesBas.add(JBcarte2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 6, 104, 86));
 
-        javax.swing.GroupLayout PanneauCartesBasLayout = new javax.swing.GroupLayout(PanneauCartesBas);
-        PanneauCartesBas.setLayout(PanneauCartesBasLayout);
-        PanneauCartesBasLayout.setHorizontalGroup(
-            PanneauCartesBasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanneauCartesBasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(JBcarte1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(JBcarte2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        PanneauCartesBasLayout.setVerticalGroup(
-            PanneauCartesBasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanneauCartesBasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PanneauCartesBasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JBcarte2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JBcarte1, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+        PanneauInfoJR.setBackground(new java.awt.Color(255, 102, 102));
+        PanneauInfoJR.setMinimumSize(new java.awt.Dimension(50, 50));
+        PanneauInfoJR.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel1.setText("Infos Joueur Rouge");
+        PanneauInfoJR.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jLabel3.setText("Nom Joueur:");
+        PanneauInfoJR.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+
+        jTextField1.setText("jTextField1");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        PanneauInfoJR.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
+
+        jLabel5.setText("Nombre d'élèves: 4");
+        PanneauInfoJR.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        jLabel7.setText("Nombre de Censei : 1");
+        PanneauInfoJR.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+
+        PanneauInfoJB.setBackground(new java.awt.Color(0, 153, 255));
+        PanneauInfoJB.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel2.setText("Infos Joueur Bleu");
+        PanneauInfoJB.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jLabel4.setText("Nom Joueur");
+        PanneauInfoJB.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+
+        jTextField2.setText("jTextField2");
+        PanneauInfoJB.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, -1, -1));
+
+        jLabel6.setText("Nombre d'élèves : 4");
+        PanneauInfoJB.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        jLabel8.setText("Nombre de Censei : 1");
+        PanneauInfoJB.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -241,26 +264,37 @@ public class Fenetre_Principale extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(173, 173, 173)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PanneauCartesHaut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(PanneauCartesBas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(PanneauCartesHaut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(PanneauGrille, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(240, Short.MAX_VALUE))
+                    .addComponent(PanneauGrille, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PanneauInfoJR, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                    .addComponent(PanneauInfoJB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PanneauCartesHaut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PanneauCartesHaut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanneauInfoJR, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
                 .addComponent(PanneauGrille, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(PanneauCartesBas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PanneauInfoJB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PanneauCartesBas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JBcarte2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBcarte2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBcarte2ActionPerformed
 
     private void JRcarte2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRcarte2ActionPerformed
         // TODO add your handling code here:
@@ -270,9 +304,9 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JRcarte1ActionPerformed
 
-    private void JBcarte2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBcarte2ActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JBcarte2ActionPerformed
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -317,5 +351,17 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     private javax.swing.JPanel PanneauCartesBas;
     private javax.swing.JPanel PanneauCartesHaut;
     private javax.swing.JPanel PanneauGrille;
+    private javax.swing.JPanel PanneauInfoJB;
+    private javax.swing.JPanel PanneauInfoJR;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
