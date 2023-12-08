@@ -14,10 +14,11 @@ public class Pions {
     private boolean eleve;
     private String couleur;  //R pour rouge et B pour bleu
 
-    public Pions(int position_ligne, int position_colonne, boolean eleve) {
+    public Pions(int position_ligne, int position_colonne, boolean eleve, int nb_eleve, int nb_maitre) {
         this.position_ligne = position_ligne;
         this.position_colonne = position_colonne;
         this.eleve = eleve;
+  
     }
 
     public int getPosition_ligne() {
@@ -42,4 +43,29 @@ public class Pions {
         
     }*/
     
+    public void deplacerPion(int ligne, int colonne) {
+        
+    }
+    
+    
+    public boolean verif_position(int ligne, int colonne){
+        if (ligne>4 || colonne>4 || ligne<0 || colonne<0){
+            return false;
+        }
+        else
+            return true;
+    }
+    
+    public void changement_coord (int ligne, int colonne){
+        if (verif_position(ligne, colonne)==true){
+            this.position_colonne=colonne;
+            this.position_ligne=ligne;
+        }   
+    }
+    
+    public void deplacerPion(Pions pion) {
+        
+    }
+    
 }
+    
