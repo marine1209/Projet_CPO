@@ -55,7 +55,18 @@ public class CaseGrilleGraphique extends JButton {
             }
         }
         g.fillOval(2, 2, longueur - 4, hauteur - 4);
+        
+        
+        int w = this.getWidth();
+        int h = this.getHeight();
+        if (caseGrilleAssociee.estOccupee() == true) {
+        g.setColor(Color.red);
+        } else {
+        g.setColor(Color.blue);
+        }
+        g.fillOval(2, 2, w - 4, h - 4);
+ }
+
     } 
     
     
-}
