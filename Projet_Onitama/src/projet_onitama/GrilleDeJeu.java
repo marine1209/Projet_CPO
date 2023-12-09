@@ -53,4 +53,15 @@ public class GrilleDeJeu {
     
 }
 }
+    public boolean peuxManger (int ligneAdversaire, int colonneAdversaire, int ligneAttaquant, int colonneAttaquant){
+        if (matriceCellules[ligneAdversaire][colonneAdversaire].estOccupee()==false){
+            return false;
+        }
+        if (matriceCellules[ligneAdversaire][colonneAdversaire].getPion_associe().getCouleur()!= matriceCellules[ligneAttaquant][colonneAttaquant].getPion_associe().getCouleur()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
