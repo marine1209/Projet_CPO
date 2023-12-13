@@ -12,12 +12,14 @@ public class Pions {
     private int position_ligne;
     private int position_colonne; 
     private boolean eleve;
+    private boolean Mort;
     private String couleur;  //R pour rouge et B pour bleu
 
     public Pions(int position_ligne, int position_colonne, boolean eleve, int nb_eleve, int nb_maitre) {
         this.position_ligne = position_ligne;
         this.position_colonne = position_colonne;
         this.eleve = eleve;
+        this.Mort= false;
   
     }
 
@@ -60,8 +62,8 @@ public class Pions {
         }   
     }
     
-    public void deplacerPion(Pions pion) {
-        
+    public void MortDuPion(){
+        this.Mort=true;
     }
     
 }

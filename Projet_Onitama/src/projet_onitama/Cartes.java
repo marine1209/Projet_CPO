@@ -4,7 +4,11 @@
  */
 package projet_onitama;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,21 +27,27 @@ public class Cartes {
         this.matriceCellules = matriceCellules;
         this.position_Ccase=position_Ccase;
         this.position_Lcase=position_Lcase;
+        try {
+            Method method = this.getClass().getMethod("Cobra");
+            method.invoke(this);
+        } catch (Exception ex) {
+        }
+
     }
-    public void mouv_droite(int position_Ccase, int m){
-        matriceCellules[i][position_Ccase]=matriceCellules[i][position_Ccase+m];
-    }
-    
-    public void mouv_gauche(int position_Ccase, int n){
-        matriceCellules[i][position_Ccase]=matriceCellules[i][position_Ccase-n];       
-    }
-    
-    public void mouv_haut(int position_Lcase, int c){
-        matriceCellules[position_Lcase][j]=matriceCellules[position_Lcase-c][j];
+    public void mouv_droite(int position_Lcase, int position_Ccase){
+        matriceCellules[position_Lcase][position_Ccase]=matriceCellules[position_Lcase][position_Ccase+1];
     }
     
-    public void mouv_bas(int position_Lcase, int c){
-        matriceCellules[position_Lcase][j]=matriceCellules[position_Lcase+c][j];
+    public void mouv_gauche(int position_Lcase, int position_Ccase){
+        matriceCellules[position_Lcase][position_Ccase]=matriceCellules[position_Lcase][position_Ccase-1];       
+    }
+    
+    public void mouv_haut(int position_Lcase, int position_Ccase){
+        matriceCellules[position_Lcase][position_Ccase]=matriceCellules[position_Lcase-1][position_Ccase];
+    }
+    
+    public void mouv_bas(int position_Lcase, int position_Ccase){
+        matriceCellules[position_Lcase][position_Ccase]=matriceCellules[position_Lcase+1][position_Ccase];
     }
     
     public void mouv_diag_HDroite(int position_Ccase,int position_Lcase){
@@ -68,16 +78,16 @@ public class Cartes {
         this.nom = "Boar";
         switch (mouv){
         case 1:
-            this.mouv_droite(position_Ccase,1);
+            this.mouv_droite(position_Ccase,position_Lcase);
             break;
         
         case 2:
             //une case en haut
-            this.mouv_haut(position_Lcase,1);
+            this.mouv_haut(position_Lcase,position_Ccase);
             break;
         
         case 3:
-            this.mouv_gauche(position_Ccase,1);
+            this.mouv_gauche(position_Ccase,position_Lcase);
             break;
         
         
@@ -89,7 +99,7 @@ public class Cartes {
         this.nom = "Cobra";
         switch(mouv){
             case 1:
-                this.mouv_gauche(position_Ccase,1);
+                this.mouv_gauche(position_Ccase,position_Lcase);
                 break;
             case 2:
                 this.mouv_diag_HDroite(position_Ccase,position_Lcase);
@@ -104,13 +114,15 @@ public class Cartes {
         this.nom = "Crab";
         switch(mouv){
             case 1:
-                this.mouv_haut(position_Lcase,1);
+                this.mouv_haut(position_Lcase,position_Ccase);
                 break;
             case 2:
-                this.mouv_droite(position_Ccase,2);
+                this.mouv_droite(position_Ccase,position_Lcase);
+                this.mouv_droite(position_Ccase,position_Lcase);
                 break;
             case 3:
-                this.mouv_gauche(position_Ccase,2);
+                this.mouv_gauche(position_Ccase,position_Lcase);
+                this.mouv_gauche(position_Ccase,position_Lcase);
                 break;
         }
     }
@@ -119,7 +131,7 @@ public class Cartes {
         this.nom = "Crane";
         switch(mouv){
             case 1:
-                this.mouv_haut(position_Lcase,1);
+                this.mouv_haut(position_Lcase,position_Ccase);
                 break;
             case 2:
                 this.mouv_diag_BDroite(position_Ccase, position_Lcase);
@@ -152,7 +164,7 @@ public class Cartes {
         this.nom = "Eel";
         switch (mouv){
             case 1:
-                this.mouv_droite(position_Ccase, 1);
+                this.mouv_droite(position_Ccase, position_Lcase);
                 break;
             case 2:
                 this.mouv_diag_BGauche(position_Ccase, position_Lcase);
@@ -173,10 +185,10 @@ public class Cartes {
                 this.mouv_diag_HGauche(position_Ccase, position_Lcase);
                 break;
             case 3:
-                this.mouv_droite(position_Ccase, 1);
+                this.mouv_droite(position_Ccase, position_Lcase);
                 break;
             case 4:
-                this.mouv_gauche(position_Ccase,1);
+                this.mouv_gauche(position_Ccase,position_Lcase);
                 break;
         }
     }
@@ -185,7 +197,8 @@ public class Cartes {
         this.nom = "Frog";
         switch(mouv){
             case 1:
-                this.mouv_gauche(position_Ccase,2);
+                this.mouv_gauche(position_Ccase,position_Lcase);
+                this.mouv_gauche(position_Ccase,position_Lcase);
                 break;
             case 2:
                 this.mouv_diag_HGauche(position_Ccase, position_Lcase);
@@ -200,10 +213,10 @@ public class Cartes {
         this.nom = "Goose";
         switch(mouv){
             case 1:
-                this.mouv_gauche(position_Ccase,1);
+                this.mouv_gauche(position_Ccase,position_Lcase);
                 break;
             case 2:
-                this.mouv_droite(position_Ccase,1);
+                this.mouv_droite(position_Ccase,position_Lcase);
                 break;
             case 3:
                 this.mouv_diag_HGauche(position_Ccase, position_Lcase);
@@ -218,13 +231,13 @@ public class Cartes {
         this.nom = "Horse";
         switch(mouv){
             case 1:
-                this.mouv_bas(position_Lcase, 1);
+                this.mouv_bas(position_Lcase, position_Ccase);
                 break;
             case 2:
-                this.mouv_haut(position_Lcase,1);
+                this.mouv_haut(position_Lcase,position_Ccase);
                 break;
             case 3:
-                this.mouv_gauche(position_Ccase, 1);
+                this.mouv_gauche(position_Ccase, position_Lcase);
         }
     }
     
@@ -238,7 +251,7 @@ public class Cartes {
                 this.mouv_diag_HGauche(position_Ccase, position_Lcase);
                 break;
             case 3:
-                this.mouv_bas(position_Lcase, 1);
+                this.mouv_bas(position_Lcase, position_Ccase);
                 break;
         }
     }
@@ -265,13 +278,13 @@ public class Cartes {
         this.nom = "Ox";
         switch (mouv){
             case 1:
-                this.mouv_bas(position_Lcase, 1);
+                this.mouv_bas(position_Lcase, position_Ccase);
                 break;
             case 2:
-                this.mouv_haut(position_Lcase,1);
+                this.mouv_haut(position_Lcase,position_Ccase);
                 break;
             case 3:
-                this.mouv_droite(position_Ccase, 1);
+                this.mouv_droite(position_Ccase, position_Lcase);
                 break;
         }
     }
@@ -286,7 +299,8 @@ public class Cartes {
                 this.mouv_diag_BGauche(position_Ccase, position_Lcase);
                 break;
             case 3:
-                this.mouv_droite(position_Ccase, 2);
+                this.mouv_droite(position_Ccase, position_Lcase);
+                this.mouv_droite(position_Ccase, position_Lcase);
                 break;
         }
     }
@@ -295,10 +309,10 @@ public class Cartes {
         this.nom = "Rooster";
         switch (mouv){
             case 1:
-                this.mouv_droite(position_Ccase, 1);
+                this.mouv_droite(position_Ccase, position_Lcase);
                 break;
             case 2:
-                this.mouv_gauche(position_Ccase, 1);
+                this.mouv_gauche(position_Ccase, position_Lcase);
                 break;
             case 3:
                 this.mouv_diag_HDroite(position_Ccase,position_Lcase);
@@ -313,10 +327,11 @@ public class Cartes {
         this.nom = "Tiger";
         switch(mouv){
             case 1:
-                this.mouv_bas(position_Lcase, 1);
+                this.mouv_bas(position_Lcase, position_Ccase);
                 break;
             case 2:
-                this.mouv_haut(position_Lcase,2);
+                this.mouv_haut(position_Lcase,position_Ccase);
+                this.mouv_haut(position_Lcase,position_Ccase);
                 break;
         }
     }

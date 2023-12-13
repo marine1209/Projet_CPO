@@ -37,11 +37,11 @@ public class GrilleDeJeu {
                 this.matriceCellules[i][j] = new CaseGrille(true);
                 this.matriceCellules[i][j].pion_associe = new Pions (i, j, true, "rouge");      
               }
-              if (i==0 && j==2){  
+              if (i==4 && j==2){  
                 this.matriceCellules[i][j] = new CaseGrille(true);
                 this.matriceCellules[i][j].pion_associe = new Pions (i, j, false, "bleu");   
               }
-              if (i==0 && j!=2){
+              if (i==4 && j!=2){
                 this.matriceCellules[i][j] = new CaseGrille(true);
                 this.matriceCellules[i][j].pion_associe = new Pions (i, j, true, "bleu");      
               }
@@ -49,8 +49,25 @@ public class GrilleDeJeu {
               
               
     }   
+
+}
+}
+    public boolean peuxManger (int ligneAdversaire, int colonneAdversaire, int ligneAttaquant, int colonneAttaquant){
+        if (matriceCellules[ligneAdversaire][colonneAdversaire].estOccupee()==false){
+            return false;
+        }
+        if (matriceCellules[ligneAdversaire][colonneAdversaire].getPion_associe().getCouleur()!= matriceCellules[ligneAttaquant][colonneAttaquant].getPion_associe().getCouleur()){
+            if (matriceCellules[ligneAdversaire][colonneAdversaire].getPion_associe().estEleve()==false){
+               matriceCellules[ligneAdversaire][colonneAdversaire].getPion_associe().MortDuPion();
+            } 
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+   
     
-    
+
 }
-}
-}
+
