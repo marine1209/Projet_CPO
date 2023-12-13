@@ -44,7 +44,9 @@ public class Pions {
         String animal = carte.nom;
         
     }*/
-
+    
+    
+    
     public boolean verif_position(int ligne, int colonne){
         if (ligne>4 || colonne>4 || ligne<0 || colonne<0){
             return false;
