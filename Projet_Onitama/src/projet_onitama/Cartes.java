@@ -95,10 +95,15 @@ public class Cartes {
     }
 
     
-    public void Cobra(){
+    public ArrayList Cobra(Pions pion){
+        ArrayList coord_temp = new ArrayList<Integer>();
         this.nom = "Cobra";
+        if (verif_position(ligne_visee, colonne_visee) == true) && peuxManger(pion) == true) {
+            pion.position_ligne = 0;
+        }
         switch(mouv){
             case 1:
+                temp = [pion.getPosition_ligne(), pion.getPosition_colonne()]
                 this.mouv_gauche(position_Ccase,position_Lcase);
                 break;
             case 2:
