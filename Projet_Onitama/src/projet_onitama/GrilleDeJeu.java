@@ -49,8 +49,7 @@ public class GrilleDeJeu {
               
               
     }   
-    
-    
+
 }
 }
     public boolean peuxManger (int ligneAdversaire, int colonneAdversaire, int ligneAttaquant, int colonneAttaquant){
@@ -58,10 +57,17 @@ public class GrilleDeJeu {
             return false;
         }
         if (matriceCellules[ligneAdversaire][colonneAdversaire].getPion_associe().getCouleur()!= matriceCellules[ligneAttaquant][colonneAttaquant].getPion_associe().getCouleur()){
+            if (matriceCellules[ligneAdversaire][colonneAdversaire].getPion_associe().estEleve()==false){
+               matriceCellules[ligneAdversaire][colonneAdversaire].getPion_associe().MortDuPion();
+            } 
             return true;
         }
         else {
             return false;
         }
     }
+   
+    
+
 }
+
