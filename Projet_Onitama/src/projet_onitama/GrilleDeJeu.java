@@ -45,6 +45,9 @@ public class GrilleDeJeu {
                 this.matriceCellules[i][j] = new CaseGrille(true);
                 this.matriceCellules[i][j].pion_associe = new Pions (i, j, true, "bleu");      
               }
+              else{
+                  this.matriceCellules[i][j] = new CaseGrille(false);
+              }
               
               
               
