@@ -12,8 +12,13 @@ public class CaseGrille {
     
     boolean etat;
     Pions pion_associe;
+    public CaseGrille(boolean etat, Pions pion_associe) {
+        this.etat = etat;
+        this.pion_associe = pion_associe;
+    }
     public CaseGrille(boolean etat) {
-        this.etat = false;
+        this.etat = etat;
+        this.pion_associe = null; // Pas de pion associé dans ce cas
     }
     
     /**

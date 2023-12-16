@@ -11,6 +11,4 @@ package projet_onitama;
 public class Joueur {
     int nbPions; 
     boolean Sensei; 
-    
-    
 }

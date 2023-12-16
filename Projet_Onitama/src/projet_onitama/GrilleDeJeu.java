@@ -24,26 +24,25 @@ public class GrilleDeJeu {
     public GrilleDeJeu(int nbLignes, int nbColonnes) {
         this.nbLignes = 5;
         this.nbColonnes = 5;
-         
         matriceCellules=new CaseGrille[5][5];
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 // Création d'un nouvel objet de type CelluleLumineuse pour chaque cellule
               if (i==0 && j==2){  
-                this.matriceCellules[i][j] = new CaseGrille(true);
-                this.matriceCellules[i][j].pion_associe = new Pions (i, j, false, "rouge");   
-              }
+                this.matriceCellules[i][j] = new CaseGrille(true, new Pions (i, j, false, "rouge"));
+                
+              }else
               if (0==i && j!=2){
-                this.matriceCellules[i][j] = new CaseGrille(true);
-                this.matriceCellules[i][j].pion_associe = new Pions (i, j, true, "rouge");      
-              }
+                this.matriceCellules[i][j] = new CaseGrille(true, new Pions (i, j, true, "rouge"));
+                   
+              }else
               if (i==4 && j==2){  
-                this.matriceCellules[i][j] = new CaseGrille(true);
-                this.matriceCellules[i][j].pion_associe = new Pions (i, j, false, "bleu");   
-              }
+                this.matriceCellules[i][j] = new CaseGrille(true, new Pions (i, j, false, "bleu"));
+                 
+              }else
               if (i==4 && j!=2){
-                this.matriceCellules[i][j] = new CaseGrille(true);
-                this.matriceCellules[i][j].pion_associe = new Pions (i, j, true, "bleu");      
+                this.matriceCellules[i][j] = new CaseGrille(true,  new Pions (i, j, true, "bleu"));
+                 
               }
               else{
                   this.matriceCellules[i][j] = new CaseGrille(false);
