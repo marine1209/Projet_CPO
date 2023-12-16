@@ -22,6 +22,8 @@ public class Cartes {
     int i;
     int j;
     String nom;
+    ArrayList coord_temp_actuelle = new ArrayList<Integer>();
+    ArrayList coord_temp_visee = new ArrayList<Integer>();
     
     public Cartes(CaseGrille[][] matriceCellules) {
         this.matriceCellules = matriceCellules;
@@ -96,14 +98,13 @@ public class Cartes {
 
     
     public ArrayList Cobra(Pions pion){
-        ArrayList coord_temp = new ArrayList<Integer>();
         this.nom = "Cobra";
-        if (verif_position(ligne_visee, colonne_visee) == true) && peuxManger(pion) == true) {
-            pion.position_ligne = 0;
-        }
         switch(mouv){
             case 1:
-                temp = [pion.getPosition_ligne(), pion.getPosition_colonne()]
+                coord_temp_actuelle.add(pion.getPosition_ligne());
+                coord_temp_actuelle.add(pion.getPosition_colonne());
+                this.mouv_gauche(((Integer) coord_temp_actuelle.get(0)).intValue(),((Integer) coord_temp_actuelle.get(1)).intValue());
+                if (verif_position(((Integer) coord_temp_actuelle.get(0)).intValue(),((Integer) coord_temp_actuelle.get(1)).intValue()) == true) && peuxManger(pion) == true) {)
                 this.mouv_gauche(position_Ccase,position_Lcase);
                 break;
             case 2:
@@ -113,6 +114,7 @@ public class Cartes {
                 this.mouv_diag_BDroite(position_Ccase,position_Lcase);
                 break;
         }
+    }
     }
     
     public void Crab(){
