@@ -116,7 +116,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         ArrayList<String> cartes_tirees = new ArrayList<String>();
         Random random = new Random();
         for (int i = 0 ; i<5 ; i++) {
-            int temp = random.nextInt(16);
+            int temp = random.nextInt(16-i);
             String carte_temp = tab.get(temp);
             cartes_tirees.add(carte_temp);
             tab.remove(carte_temp);

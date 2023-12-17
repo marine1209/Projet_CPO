@@ -22,8 +22,8 @@ public class Cartes {
     int i;
     int j;
     String nom;
-    ArrayList coord_temp_actuelle = new ArrayList<Integer>();
-    ArrayList coord_temp_visee = new ArrayList<Integer>();
+    ArrayList coord_temp = new ArrayList<Integer>();
+    
     
     public Cartes(CaseGrille[][] matriceCellules) {
         this.matriceCellules = matriceCellules;
@@ -41,7 +41,7 @@ public class Cartes {
     }
     
     public void mouv_gauche(int position_Lcase, int position_Ccase){
-        matriceCellules[position_Lcase][position_Ccase]=matriceCellules[position_Lcase][position_Ccase-1];       
+        matriceCellules[position_Lcase][position_Ccase]=matriceCellules[position_Lcase][position_Ccase-1];
     }
     
     public void mouv_haut(int position_Lcase, int position_Ccase){
@@ -101,10 +101,10 @@ public class Cartes {
         this.nom = "Cobra";
         switch(mouv){
             case 1:
-                coord_temp_actuelle.add(pion.getPosition_ligne());
-                coord_temp_actuelle.add(pion.getPosition_colonne());
-                this.mouv_gauche(((Integer) coord_temp_actuelle.get(0)).intValue(),((Integer) coord_temp_actuelle.get(1)).intValue());
-                if (verif_position(((Integer) coord_temp_actuelle.get(0)).intValue(),((Integer) coord_temp_actuelle.get(1)).intValue()) == true) && peuxManger(pion) == true) {)
+                coord_temp.add(pion.getPosition_ligne());
+                coord_temp.add(pion.getPosition_colonne());
+                this.mouv_gauche(((Integer) coord_temp.get(0)).intValue(),((Integer) coord_temp.get(1)).intValue());
+                if (verif_position(((Integer) coord_temp.get(0)).intValue(),((Integer) coord_temp.get(1)).intValue()) == true && peuxManger(pion) == true) {)
                 this.mouv_gauche(position_Ccase,position_Lcase);
                 break;
             case 2:

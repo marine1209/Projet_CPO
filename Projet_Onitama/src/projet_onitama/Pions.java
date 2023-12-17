@@ -9,6 +9,8 @@ package projet_onitama;
  * @author marin
  */
 public class Pions {
+    
+    CaseGrille [][] matriceCellules;
     private int position_ligne;
     private int position_colonne; 
     private boolean eleve;
@@ -66,6 +68,24 @@ public class Pions {
     public void MortDuPion(){
         this.Mort=true;
     }
+    
+    public boolean peutSeDeplacer (Pions pion, int ligne_visee, int colonne_visee) {
+        if (verif_position(ligne_visee, colonne_visee) == true) {
+            if (matriceCellules[ligne_visee][colonne_visee].pion_associe == null) {
+                return true;
+            } else if(matriceCellules[ligne_visee][colonne_visee].pion_associe != null) {
+                if (matriceCellules[ligne_visee][colonne_visee].pion_associe.getCouleur() != pion.getCouleur()) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        } else {
+            return false;
+        }
+        return true;
+    }
+
     
 }
     

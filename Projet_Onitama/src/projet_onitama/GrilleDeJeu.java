@@ -54,6 +54,7 @@ public class GrilleDeJeu {
 
 }
 }
+    
     public boolean peuxManger (int ligneAdversaire, int colonneAdversaire, int ligneAttaquant, int colonneAttaquant){
         if (matriceCellules[ligneAdversaire][colonneAdversaire].estOccupee()==false){
             return false;
@@ -69,7 +70,6 @@ public class GrilleDeJeu {
         }
     }
    
-    
 
 }
 
