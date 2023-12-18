@@ -25,27 +25,37 @@ public class CaseGrilleGraphique extends JButton {
     public CaseGrilleGraphique(CaseGrille caseGrilleAssociee) {
         this.caseGrilleAssociee = caseGrilleAssociee;
     }
+    
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         int longueur = this.getWidth();
         int hauteur = this.getHeight();
         if (caseGrilleAssociee.estOccupee()) {
-    Pions pion = caseGrilleAssociee.getPion_associe();
-    if (pion != null) {
-        if ("rouge".equals(pion.getCouleur())) {
-            g.setColor(Color.red);
-            g.fillOval(2, 2, longueur - 4, hauteur-4);
-        } else if ("bleu".equals(pion.getCouleur())) {
-            g.setColor(Color.blue);
-            g.fillOval(2, 2, longueur - 4, hauteur-4);
+            Pions pion = caseGrilleAssociee.getPion_associe();
+            if (pion != null) {
+                if ("rouge".equals(pion.getCouleur())) {
+                    if (pion.estEleve() == true) {
+                        g.setColor(Color.red);
+                        g.fillOval(2, 2, longueur - 4, hauteur-4);
+                    } else {
+                        g.setColor(Color.red); // Par exemple, utiliser la couleur bleue
+                        g.fillRect(2, 2, longueur - 4, hauteur - 4);
+                    }
+                } else if ("bleu".equals(pion.getCouleur())) {
+                    if (pion.estEleve() == true) {
+                        g.setColor(Color.blue);
+                        g.fillOval(2, 2, longueur - 4, hauteur-4);
+                    } else {
+                        g.setColor(Color.blue); // Par exemple, utiliser la couleur bleue
+                        g.fillRect(2, 2, longueur - 4, hauteur - 4);
+                    }
+                }
+            }
+        } else {
+            g.setColor(Color.gray);
+            g.fillOval(2, 2, longueur - 4, hauteur - 4);
         }
-    }
-} else {
-    g.setColor(Color.gray);
-    g.fillOval(2, 2, longueur - 4, hauteur - 4);
-}
-    
     }
 }
 

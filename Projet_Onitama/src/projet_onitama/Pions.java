@@ -69,7 +69,7 @@ public class Pions {
         this.Mort=true;
     }
     
-    public boolean peutSeDeplacer (Pions pion, int ligne_visee, int colonne_visee) {
+    public boolean VerifierSiPeutSeDeplacer (Pions pion, int ligne_visee, int colonne_visee) {
         if (verif_position(ligne_visee, colonne_visee) == true) {
             if (matriceCellules[ligne_visee][colonne_visee].pion_associe == null) {
                 return true;

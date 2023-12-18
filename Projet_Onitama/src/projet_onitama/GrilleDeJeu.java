@@ -15,6 +15,9 @@ public class GrilleDeJeu {
     
     
     
+  
+    
+    
     /**
      * Ce constructeur initialise nb lignes et colonnes et réserve la mémoire pour la grille de jeu et la cellule
      * @param nbLignes
@@ -54,7 +57,6 @@ public class GrilleDeJeu {
 
 }
 }
-    
     public boolean peuxManger (int ligneAdversaire, int colonneAdversaire, int ligneAttaquant, int colonneAttaquant){
         if (matriceCellules[ligneAdversaire][colonneAdversaire].estOccupee()==false){
             return false;

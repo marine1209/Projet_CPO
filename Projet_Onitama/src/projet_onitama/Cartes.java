@@ -35,11 +35,7 @@ public class Cartes {
         } catch (Exception ex) {
         }
         
-        /*
-        Constructeur prend en entrée le nom de la carte
         
-        this.nom = nom;
-        */+
     }
     
     public void mouv_droite(int position_Lcase, int position_Ccase){
@@ -103,14 +99,14 @@ public class Cartes {
     }
 
     
-    public ArrayList Cobra(Pions pion){
+    public void Cobra(Pions pion){
         this.nom = "Cobra";
         switch(mouv){
             case 1:
                 coord_temp.add(pion.getPosition_ligne());
                 coord_temp.add(pion.getPosition_colonne());
                 this.mouv_gauche(((Integer) coord_temp.get(0)).intValue(),((Integer) coord_temp.get(1)).intValue());
-                if (verif_position(((Integer) coord_temp.get(0)).intValue(),((Integer) coord_temp.get(1)).intValue()) == true && peuxManger(pion) == true) {)
+                //if (verif_position(((Integer) coord_temp.get(0)).intValue(),((Integer) coord_temp.get(1)).intValue()) == true && peuxManger(pion) == true) {
                 this.mouv_gauche(position_Ccase,position_Lcase);
                 break;
             case 2:
@@ -121,7 +117,7 @@ public class Cartes {
                 break;
         }
     }
-    }
+    
     
     public void Crab(){
         this.nom = "Crab";
