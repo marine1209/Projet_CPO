@@ -9,12 +9,16 @@ import java.awt.GridLayout;
 import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import static java.lang.Math.random;
 import static java.lang.StrictMath.random;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JButton;
 import java.util.Random;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 /**
@@ -25,12 +29,14 @@ public class Fenetre_Principale extends javax.swing.JFrame {
 
     GrilleDeJeu grille;
     int i;
+    ArrayList<Cartes2> cartesTirees;
+
     /**
      * Creates new form Fenetre_Principale
      */
     public Fenetre_Principale() {
         initComponents();
-    
+
         this.grille = new GrilleDeJeu(5, 5);
         PanneauGrille.setLayout(new GridLayout(5, 5));
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 5 * 40, 5 * 40));
@@ -40,18 +46,17 @@ public class Fenetre_Principale extends javax.swing.JFrame {
                 PanneauGrille.add(bouton_case); // ajout au Jpanel PanneauGrille
             }
         }
-    
-    
+
         PanneauCartesHaut.setLayout(new GridLayout(1, 2));
         getContentPane().add(PanneauCartesHaut, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70));
-        
+
         // création du panneau de boutons verticaux (pour les lignes)
         for (i = 0; i < 2; i++) {
             //ImageIcon dragonImage=new ImageIcon("C:\\Users\\marie\\Documents\\EPF\\2A\\CPO\\cartes onitama.jpg");
             //JButton JRcarte1 = new JButton(dragonImage);
             //frame.getContentPane().add(JRcarte1, BorderLayout.CENTER);
             JButton JRcarte2 = new JButton();
-               //JRcarte1.setText("→");
+            //JRcarte1.setText("→");
             ActionListener ecouteurClick = new ActionListener() {
                 final int j = i;
 
@@ -65,7 +70,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
             JRcarte1.addActionListener(ecouteurClick);
             JRcarte2.addActionListener(ecouteurClick);
             //PanneauCartesHaut.add(bouton_ligne);
-        }    
+        }
         PanneauCartesBas.setLayout(new GridLayout(1, 2));
         getContentPane().add(PanneauCartesBas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 2 * 40, 1 * 40));
         this.pack();
@@ -74,7 +79,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         for (i = 0; i < 2; i++) {
             JButton JBcarte1 = new JButton();
             JButton JBcarte2 = new JButton();
-               //JRcarte1.setText("→");
+            //JRcarte1.setText("→");
             ActionListener ecouteurClick = new ActionListener() {
                 final int j = i;
 
@@ -88,11 +93,15 @@ public class Fenetre_Principale extends javax.swing.JFrame {
             JBcarte1.addActionListener(ecouteurClick);
             JBcarte2.addActionListener(ecouteurClick);
             //PanneauCartesHaut.add(bouton_ligne);
+
+        }
+        tirageCartes();
+        affichageCartes();
     }
-    }
-    
+
     /**
-     * Méthode qui tire 5 cartes aléatoirement 
+     * Méthode qui tire 5 cartes aléatoirement
+     *
      * @return un arraylist contenant les 5 cartes
      */
     public ArrayList tirerCartesAléatoire() {
@@ -115,22 +124,82 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         tab.add("Tiger");
         ArrayList<String> cartes_tirees = new ArrayList<String>();
         Random random = new Random();
-        for (int i = 0 ; i<5 ; i++) {
-            int temp = random.nextInt(16-i);
+        for (int i = 0; i < 5; i++) {
+            int temp = random.nextInt(16 - i);
             String carte_temp = tab.get(temp);
             cartes_tirees.add(carte_temp);
             tab.remove(carte_temp);
         }
         return cartes_tirees;
     }
-        
-        
+
+    public void tirageCartes() {
+        ArrayList<Cartes2> cartesTirees = new ArrayList<Cartes2>();
+        ArrayList<String> nomCartes = new ArrayList<String>();
+        nomCartes.add("boar");
+        nomCartes.add("cobra");
+        nomCartes.add("crab");
+        nomCartes.add("cane");
+        nomCartes.add("dragon");
+        nomCartes.add("eel");
+        nomCartes.add("elephant");
+        nomCartes.add("frog");
+        nomCartes.add("goose");
+        nomCartes.add("horse");
+        nomCartes.add("mantis");
+        nomCartes.add("monkey");
+        nomCartes.add("ox");
+        nomCartes.add("rabbit");
+        nomCartes.add("rooster");
+        nomCartes.add("tiger");
+        Random random = new Random();
+        for (int j = 0; j < 5; j++) {
+            int nombreTireAuHasard = random.nextInt(16);
+            String nomCarteTiree = nomCartes.get(nombreTireAuHasard);
+            cartesTirees.add(new Cartes2(nomCarteTiree));
+        }
+        this.cartesTirees = cartesTirees;
+    }
+
+    public void affichageCartes() {
+
+        for (int j = 0; j < cartesTirees.size(); j++) {
+
+            ImageIcon Icon = createImageIcon("/Images/"+this.cartesTirees.get(j).nom+".jpg");
+                switch (j) {
+        case 0:
+            JBcarte1.setIcon(Icon);
+            break;
+        case 1:
+            JBcarte2.setIcon(Icon);
+            break;
+        case 2:
+            JRcarte1.setIcon(Icon);
+            break;
+        case 3:
+            JRcarte2.setIcon(Icon);
+            break;
+        default:
+            break;
+    }
+        }
+
+    }
     
-    
+
+    private ImageIcon createImageIcon(String path) {
+        URL imageURL = getClass().getResource(path);
+        if (imageURL != null) {
+            return new ImageIcon(imageURL);
+        } else {
+            System.err.println("Impossible de trouver le fichier : " + path);
+            return null;
+        }
+    }
+
     /*public String tirerCarteAleatoire() {
         
     }*/
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -200,13 +269,17 @@ public class Fenetre_Principale extends javax.swing.JFrame {
 
         PanneauCartesBas.setBackground(new java.awt.Color(51, 153, 255));
         PanneauCartesBas.setAlignmentX(50.0F);
-        PanneauCartesBas.setAlignmentY(0.5F);
         PanneauCartesBas.setPreferredSize(new java.awt.Dimension(240, 98));
         PanneauCartesBas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JBcarte1.setText("JBcarte1");
         JBcarte1.setPreferredSize(new java.awt.Dimension(100, 80));
-        PanneauCartesBas.add(JBcarte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 106, 86));
+        JBcarte1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBcarte1ActionPerformed(evt);
+            }
+        });
+        PanneauCartesBas.add(JBcarte1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 104, 86));
 
         JBcarte2.setText("JBcarte2");
         JBcarte2.setPreferredSize(new java.awt.Dimension(100, 80));
@@ -215,7 +288,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
                 JBcarte2ActionPerformed(evt);
             }
         });
-        PanneauCartesBas.add(JBcarte2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 6, 104, 86));
+        PanneauCartesBas.add(JBcarte2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 104, 86));
 
         PanneauInfoJR.setBackground(new java.awt.Color(255, 102, 102));
         PanneauInfoJR.setMinimumSize(new java.awt.Dimension(50, 50));
@@ -266,12 +339,13 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(173, 173, 173)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(PanneauCartesHaut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PanneauCartesBas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PanneauGrille, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addGap(196, 196, 196)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(PanneauCartesHaut, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                        .addComponent(PanneauGrille, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(PanneauCartesBas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(PanneauInfoJR, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
                     .addComponent(PanneauInfoJB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -286,11 +360,14 @@ public class Fenetre_Principale extends javax.swing.JFrame {
                     .addComponent(PanneauInfoJR, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))
                 .addGap(12, 12, 12)
                 .addComponent(PanneauGrille, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(PanneauInfoJB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PanneauCartesBas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(PanneauInfoJB, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(PanneauCartesBas, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -311,6 +388,10 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     private void JRcarte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRcarte1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JRcarte1ActionPerformed
+
+    private void JBcarte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBcarte1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBcarte1ActionPerformed
 
     /**
      * @param args the command line arguments

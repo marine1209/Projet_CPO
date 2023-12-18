@@ -34,8 +34,14 @@ public class Cartes {
             method.invoke(this);
         } catch (Exception ex) {
         }
-
+        
+        /*
+        Constructeur prend en entrée le nom de la carte
+        
+        this.nom = nom;
+        */+
     }
+    
     public void mouv_droite(int position_Lcase, int position_Ccase){
         matriceCellules[position_Lcase][position_Ccase]=matriceCellules[position_Lcase][position_Ccase+1];
     }
