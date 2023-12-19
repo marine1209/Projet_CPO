@@ -6,6 +6,7 @@ package projet_onitama;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
 import javax.swing.JButton;
 
 /**
@@ -56,6 +57,14 @@ public class CaseGrilleGraphique extends JButton {
             g.setColor(Color.gray);
             g.fillOval(2, 2, longueur - 4, hauteur - 4);
         }
+    }
+    public ArrayList onClick() {
+        ArrayList<Integer> coordonnées = new ArrayList<Integer>();
+        coordonnées.add(caseGrilleAssociee.getPion_associe().getPosition_ligne());
+        coordonnées.add(caseGrilleAssociee.getPion_associe().getPosition_ligne());
+        //System.out.println("Clic sur la case en (" + ligne + ", " + colonne + ")");//cette ligne sert juste a tester, a mettre en commentaire plustard
+        //deplacementVraimentsPossibles(deplacement_possible(ligne, colonne));
+        return coordonnées;
     }
 }
 

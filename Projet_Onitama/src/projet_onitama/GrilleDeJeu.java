@@ -4,6 +4,8 @@
  */
 package projet_onitama;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Gaspard Rouault
@@ -71,7 +73,7 @@ public class GrilleDeJeu {
             return false;
         }
     }
-   
+    
 
 }
 

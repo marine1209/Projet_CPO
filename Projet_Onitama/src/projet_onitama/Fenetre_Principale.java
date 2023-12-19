@@ -30,19 +30,27 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     GrilleDeJeu grille;
     int i;
     ArrayList<Cartes2> cartesTirees;
+    ArrayList<Integer> coordonneesPionSelectionnée; 
 
     /**
      * Creates new form Fenetre_Principale
      */
     public Fenetre_Principale() {
         initComponents();
-
+        this.coordonneesPionSelectionnée=null;
         this.grille = new GrilleDeJeu(5, 5);
         PanneauGrille.setLayout(new GridLayout(5, 5));
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 5 * 40, 5 * 40));
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 CaseGrilleGraphique bouton_case = new CaseGrilleGraphique(grille.matriceCellules[i][j]);
+                bouton_case.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        coordonneesPionSelectionnée=bouton_case.onClick();
+                        System.out.print(coordonneesPionSelectionnée);//ligne de test
+                    }
+                });
                 PanneauGrille.add(bouton_case); // ajout au Jpanel PanneauGrille
             }
         }
@@ -166,30 +174,29 @@ public class Fenetre_Principale extends javax.swing.JFrame {
 
         for (int j = 0; j < cartesTirees.size(); j++) {
 
-            ImageIcon Icon = createImageIcon("/Images/"+this.cartesTirees.get(j).nom+".jpg");
-                switch (j) {
-        case 0:
-            JBcarte1.setIcon(Icon);
-            break;
-        case 1:
-            JBcarte2.setIcon(Icon);
-            break;
-        case 2:
-            JRcarte1.setIcon(Icon);
-            break;
-        case 3:
-            JRcarte2.setIcon(Icon);
-            break;
-        case 4:
-            Bcartecote.setIcon(Icon);
-            break;
-        default:
-            break;
-    }
+            ImageIcon Icon = createImageIcon("/Images/" + this.cartesTirees.get(j).nom + ".jpg");
+            switch (j) {
+                case 0:
+                    JBcarte1.setIcon(Icon);
+                    break;
+                case 1:
+                    JBcarte2.setIcon(Icon);
+                    break;
+                case 2:
+                    JRcarte1.setIcon(Icon);
+                    break;
+                case 3:
+                    JRcarte2.setIcon(Icon);
+                    break;
+                case 4:
+                    Bcartecote.setIcon(Icon);
+                    break;
+                default:
+                    break;
+            }
         }
 
     }
-    
 
     private ImageIcon createImageIcon(String path) {
         URL imageURL = getClass().getResource(path);
@@ -262,7 +269,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
                 JRcarte2ActionPerformed(evt);
             }
         });
-        PanneauCartesHaut.add(JRcarte2, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 3, 300, 185));
+        PanneauCartesHaut.add(JRcarte2, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 3, 300, 173));
 
         JRcarte1.setPreferredSize(new java.awt.Dimension(100, 80));
         JRcarte1.addActionListener(new java.awt.event.ActionListener() {
@@ -401,6 +408,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
 
     private void JRcarte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRcarte1ActionPerformed
         // TODO add your handling code here:
+        //deplacementVraimentsPossibles(deplacement_possible(coordonneesPionSelectionnée.get(0), coordonneesPionSelectionnée.get(1)));
     }//GEN-LAST:event_JRcarte1ActionPerformed
 
     private void JBcarte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBcarte1ActionPerformed
