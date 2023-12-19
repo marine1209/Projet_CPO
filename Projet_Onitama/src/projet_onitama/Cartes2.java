@@ -128,15 +128,15 @@ public class Cartes2 {
     public ArrayList deplacementVraimentsPossibles(ArrayList<ArrayList<Integer>>  déplacements, int ligne, int colonne) {
         for (int i = 0; i < déplacements.size(); i++) {
             for (int j = 0; j<2; j++){
-              if (déplacements.get(i).get(j) < 0 || déplacements.get(i).get(j) > 5){ 
+              if (déplacements.get(i).get(j) < 0 || déplacements.get(i).get(j) > 4){ 
                 déplacements.remove(i); 
             }
-
             }
             
         }
         return déplacements; 
-}
+    }
+    
     private void ajouterCoordonnees(ArrayList<ArrayList<Integer>> déplacementPossibles, int nouvelleLigne, int nouvelleColonne) {
         ArrayList<Integer> coordonnees = new ArrayList<>();
         coordonnees.add(nouvelleLigne);
