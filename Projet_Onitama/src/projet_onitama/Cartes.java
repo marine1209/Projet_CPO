@@ -21,6 +21,7 @@ public class Cartes {
     int position_Lcase;
     int i;
     int j;
+    int nb_cas_cases;
     String nom;
     ArrayList coord_temp = new ArrayList<Integer>();
     
@@ -80,6 +81,7 @@ public class Cartes {
     
     public void Boar(int ligne, int colonne){
         this.nom = "Boar";
+        this.nb_cas_cases = 3;
         switch (mouv){
         case 1:
             this.mouv_droite(position_Ccase,position_Lcase);
@@ -101,6 +103,7 @@ public class Cartes {
     
     public void Cobra(Pions pion){
         this.nom = "Cobra";
+        this.nb_cas_cases = 3;
         switch(mouv){
             case 1:
                 coord_temp.add(pion.getPosition_ligne());
@@ -121,6 +124,7 @@ public class Cartes {
     
     public void Crab(){
         this.nom = "Crab";
+        this.nb_cas_cases = 3;
         switch(mouv){
             case 1:
                 this.mouv_haut(position_Lcase,position_Ccase);
@@ -138,6 +142,7 @@ public class Cartes {
     
     public  void Crane(){
         this.nom = "Crane";
+        this.nb_cas_cases = 3;
         switch(mouv){
             case 1:
                 this.mouv_haut(position_Lcase,position_Ccase);
@@ -153,6 +158,7 @@ public class Cartes {
     
     public void Dragon(){
         this.nom = "Dragon";
+        this.nb_cas_cases = 4;
         switch (mouv){
             case 1:
                 this.mouv_diag_BDroite(position_Ccase,position_Lcase);
@@ -171,6 +177,7 @@ public class Cartes {
     
     public void Eel(){
         this.nom = "Eel";
+        this.nb_cas_cases = 3;
         switch (mouv){
             case 1:
                 this.mouv_droite(position_Ccase, position_Lcase);
@@ -186,6 +193,7 @@ public class Cartes {
     
     public void Elephant(){
         this.nom = "Elephant";
+        this.nb_cas_cases = 4;
         switch (mouv){
             case 1:
                 this.mouv_diag_HDroite(position_Ccase, position_Lcase);
@@ -204,6 +212,7 @@ public class Cartes {
     
     public void Frog(){
         this.nom = "Frog";
+        this.nb_cas_cases = 3;
         switch(mouv){
             case 1:
                 this.mouv_gauche(position_Ccase,position_Lcase);
@@ -220,6 +229,7 @@ public class Cartes {
     
     public void Goose(){
         this.nom = "Goose";
+        this.nb_cas_cases = 4;
         switch(mouv){
             case 1:
                 this.mouv_gauche(position_Ccase,position_Lcase);
@@ -238,6 +248,7 @@ public class Cartes {
     
     public void Horse(){
         this.nom = "Horse";
+        this.nb_cas_cases = 3;
         switch(mouv){
             case 1:
                 this.mouv_bas(position_Lcase, position_Ccase);
@@ -252,6 +263,7 @@ public class Cartes {
     
     public void Mantis(){
         this.nom = "Mantis";
+        this.nb_cas_cases = 3;
         switch(mouv){
             case 1:
                 this.mouv_diag_HDroite(position_Ccase,position_Lcase);
@@ -267,6 +279,7 @@ public class Cartes {
     
     public void Monkey(){
         this.nom = "Monkey";
+        this.nb_cas_cases = 4;
         switch (mouv){
             case 1:
                 this.mouv_diag_HDroite(position_Ccase,position_Lcase);
@@ -285,6 +298,7 @@ public class Cartes {
     
     public void Ox(){
         this.nom = "Ox";
+        this.nb_cas_cases = 3;
         switch (mouv){
             case 1:
                 this.mouv_bas(position_Lcase, position_Ccase);
@@ -300,6 +314,7 @@ public class Cartes {
     
     public void Rabbit(){
         this.nom = "Rabbit";
+        this.nb_cas_cases = 3;
         switch (mouv){
             case 1:
                 this.mouv_diag_HDroite(position_Ccase, position_Lcase);
@@ -316,6 +331,7 @@ public class Cartes {
     
     public void Rooster(){
         this.nom = "Rooster";
+        this.nb_cas_cases = 4;
         switch (mouv){
             case 1:
                 this.mouv_droite(position_Ccase, position_Lcase);
@@ -334,6 +350,7 @@ public class Cartes {
     
     public void Tiger(){
         this.nom = "Tiger";
+        this.nb_cas_cases = 2;
         switch(mouv){
             case 1:
                 this.mouv_bas(position_Lcase, position_Ccase);
