@@ -127,7 +127,7 @@ public class Cartes2 {
 
     public ArrayList deplacementVraimentsPossibles(ArrayList<ArrayList<Integer>>  déplacements, int ligne, int colonne) {
         for (int i = 0; i < déplacements.size(); i++) {
-            for (int j = 0; j<2; j++){
+            for (int j = 0; j<1; j++){
               if (déplacements.get(i).get(j) < 0 || déplacements.get(i).get(j) > 4){ 
                 déplacements.remove(i); 
             }
@@ -142,7 +142,9 @@ public class Cartes2 {
         coordonnees.add(nouvelleLigne);
         coordonnees.add(nouvelleColonne);
         déplacementPossibles.add(coordonnees);
+        
 }
+   
 }
     
 

@@ -16,12 +16,53 @@ import javax.swing.JButton;
 public class CaseGrilleGraphique extends JButton {
     
     CaseGrille caseGrilleAssociee;
-    Pions pion;
+    boolean etat;
+    Pions pion_associe;
+    
+    public CaseGrilleGraphique(boolean etat, Pions pion_associe) {
+        this.etat = etat;
+        this.pion_associe = pion_associe;
+    }
+    public CaseGrilleGraphique(boolean etat) {
+        this.etat = etat;
+        this.pion_associe = null; // Pas de pion associé dans ce cas
+    }
+    
+    /**
+     * Passe l'etat de la case de false à true et inversement
+     */
+    public void activerCase() {
+        if (etat == false) {
+            etat = true;
+        } else {
+            etat = false;
+        }
+    }
+    
+    /**
+     * Renvoie true si la case est occupée, false si elle est inoccupée.
+     * @return
+     */
+    public boolean estOccupee() {
+        if (etat == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean getEtat() {
+        return etat;
+    }
+
+    public Pions getPion_associe() {
+        return pion_associe;
+    }
     
     
-    /*public String quiOccupeLaCase() {
-        
-    }//*/
+    
+    
+    
 
     public CaseGrilleGraphique(CaseGrille caseGrilleAssociee) {
         this.caseGrilleAssociee = caseGrilleAssociee;
@@ -58,14 +99,24 @@ public class CaseGrilleGraphique extends JButton {
             g.fillOval(2, 2, longueur - 4, hauteur - 4);
         }
     }
-    public ArrayList onClick() {
-        ArrayList<Integer> coordonnées = new ArrayList<Integer>();
-        coordonnées.add(caseGrilleAssociee.getPion_associe().getPosition_ligne());
-        coordonnées.add(caseGrilleAssociee.getPion_associe().getPosition_ligne());
-        //System.out.println("Clic sur la case en (" + ligne + ", " + colonne + ")");//cette ligne sert juste a tester, a mettre en commentaire plustard
-        //deplacementVraimentsPossibles(deplacement_possible(ligne, colonne));
-        return coordonnées;
+    public Pions onClick() {
+        Pions pionSelectionne=caseGrilleAssociee.getPion_associe();
+        return pionSelectionne;
     }
+    public void mettreEnEvidence(ArrayList<ArrayList<Integer>> CoordonneePossible){
+        Graphics g = getGraphics();
+        for (int i = 0; i<CoordonneePossible.size(); i++){
+            int ligne = CoordonneePossible.get(i).get(0); 
+            int colonne = CoordonneePossible.get(i).get(1); 
+            g.setColor(Color.green);
+        g.drawRect(colonne * getWidth() / 5, ligne * getHeight() / 5, getWidth() /5, getHeight() / 5);
+        }
+         
+            
+           
+        
+    }
+
 }
 
 

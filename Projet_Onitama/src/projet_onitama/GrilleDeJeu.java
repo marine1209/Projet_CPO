@@ -16,10 +16,6 @@ public class GrilleDeJeu {
     int nbColonnes;
     
     
-    
-  
-    
-    
     /**
      * Ce constructeur initialise nb lignes et colonnes et réserve la mémoire pour la grille de jeu et la cellule
      * @param nbLignes
