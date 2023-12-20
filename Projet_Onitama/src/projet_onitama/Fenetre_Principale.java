@@ -41,6 +41,12 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         initComponents();
         // coordonneesPionSelectionnée=null;
         //carteSelectionnée=null;
+          ArrayList<ArrayList<Integer>> test = new ArrayList<ArrayList<Integer>>();
+        ArrayList<Integer> test2= new ArrayList<>();
+        test2.add(1);
+        test2.add(4);
+        test.add(test2);
+       
         tirageCartes();
         affichageCartes();
         this.grille = new GrilleDeJeu(5, 5);
@@ -54,14 +60,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         PionSelectionné = bouton_case.onClick();
-                        ArrayList<ArrayList<Integer>> coordonnees = new ArrayList<>();
-                        ArrayList<Integer> coordonnee = new ArrayList<>();
-                        ArrayList<Integer> coordonnee2 = new ArrayList<>();
-                        coordonnee2.add(1);
-                        coordonnee2.add(4);
-                        coordonnees.add(coordonnee2);
-                        bouton_case.mettreEnEvidence(coordonnees);
-                        repaint();
+                        
                     }
                 });
                 PanneauGrille.add(bouton_case); // ajout au Jpanel PanneauGrille
@@ -72,50 +71,8 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         getContentPane().add(PanneauCartesHaut, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70));
         PanneauCartesBas.setLayout(new GridLayout(1, 2));
         getContentPane().add(PanneauCartesBas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 2 * 40, 1 * 40));
-        /*
-        // création du panneau de boutons verticaux (pour les lignes)
-        for (i = 0; i < 2; i++) {
-            //ImageIcon dragonImage=new ImageIcon("C:\\Users\\marie\\Documents\\EPF\\2A\\CPO\\cartes onitama.jpg");
-            //JButton JRcarte1 = new JButton(dragonImage);
-            //frame.getContentPane().add(JRcarte1, BorderLayout.CENTER);
-            JButton JRcarte2 = new JButton();
-            //JRcarte1.setText("→");
-            ActionListener ecouteurClick = new ActionListener() {
-                final int j = i;
-
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    
-                  
-                    
-                }
-            };
-            JRcarte1.addActionListener(ecouteurClick);
-            JRcarte2.addActionListener(ecouteurClick);
-            //PanneauCartesHaut.add(bouton_ligne);
-        }
-        PanneauCartesBas.setLayout(new GridLayout(1, 2));
-        getContentPane().add(PanneauCartesBas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 2 * 40, 1 * 40));
-        this.pack();
-        this.revalidate();
-        // création du panneau de boutons verticaux (pour les lignes)
-        for (i = 0; i < 2; i++) {
-            JButton JBcarte = new JButton();
-            final int indiceCarte = i;
-            ActionListener ecouteurClick = new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                     carteSelectionnée=cartesTirees.get(indiceCarte);
-                     System.out.println("Coordonnées du pion : " + PionSelectionné);
-                     System.out.println(carteSelectionnée.deplacementVraimentsPossibles(carteSelectionnée.deplacement_possible(PionSelectionné.getPosition_ligne(),PionSelectionné.getPosition_colonne()), PionSelectionné.getPosition_ligne(), PionSelectionné.getPosition_colonne() ));
-                }
-            };
-             JBcarte1.addActionListener(ecouteurClick);
-             JBcarte2.addActionListener(ecouteurClick);
-            //PanneauCartesHaut.add(bouton_ligne);
-
-        }*/
-
+        
+ //Allumer(test);
     }
 
     /**
@@ -222,6 +179,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     public void Allumer(ArrayList<ArrayList<Integer>> CoordonneePossible) {
         for (int i = 0; i < CoordonneePossible.size(); i++) {
             Graphics Graphics;
+            grille.matriceCellules[1][4].mettreEnEvidence(CoordonneePossible);
 
         }
     }
