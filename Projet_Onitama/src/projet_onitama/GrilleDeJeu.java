@@ -12,19 +12,16 @@ import java.util.ArrayList;
  */
 public class GrilleDeJeu {
     CaseGrille[][] matriceCellules;
-    int nbLignes;
-    int nbColonnes;
+    
     
     
     /**
      * Ce constructeur initialise nb lignes et colonnes et réserve la mémoire pour la grille de jeu et la cellule
-     * @param nbLignes
-     * @param nbColonnes
+   
      */
     
-    public GrilleDeJeu(int nbLignes, int nbColonnes) {
-        this.nbLignes = 5;
-        this.nbColonnes = 5;
+    public GrilleDeJeu() {
+      
         matriceCellules=new CaseGrille[5][5];
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {

@@ -49,7 +49,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
        
         tirageCartes();
         affichageCartes();
-        this.grille = new GrilleDeJeu(5, 5);
+        this.grille = new GrilleDeJeu();
         PanneauGrille.setLayout(new GridLayout(5, 5));
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 5 * 40, 5 * 40));
         for (int i = 0; i < 5; i++) {
