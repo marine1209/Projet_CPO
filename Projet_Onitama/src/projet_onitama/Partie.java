@@ -13,6 +13,10 @@ import java.util.Random;
  */
 public class Partie {
     
+    /**
+     * Effectue un tirage aléatoire de cartes parmi une liste prédéfinie de noms de cartes.
+     * @return
+     */
     public ArrayList tirageCartes (){
         ArrayList<Cartes2> cartesTirees = new ArrayList <Cartes2>();
         ArrayList<String> nomCartes = new ArrayList<String>();

@@ -18,108 +18,215 @@ public class Cartes2 {
         this.nom = nom;
     }
 
-    public ArrayList deplacement_possible(int ligne, int colonne) {
+    public ArrayList deplacement_possible_bleu(int ligne, int colonne) {
         ArrayList<ArrayList<Integer>> déplacementPossibles = new ArrayList<ArrayList<Integer>>();
 
         switch (this.nom) {
             case "boar":
-            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne);
+            ajouterCoordonnees(déplacementPossibles, ligne, colonne - 1);
             ajouterCoordonnees(déplacementPossibles, ligne, colonne + 1);
-            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne + 1);
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne);
               break;
             
             case "cobra": 
-            ajouterCoordonnees(déplacementPossibles, ligne -1, colonne);
-            ajouterCoordonnees(déplacementPossibles, ligne-1, colonne - 1);
-            ajouterCoordonnees(déplacementPossibles, ligne +1, colonne + 1);
+            ajouterCoordonnees(déplacementPossibles, ligne, colonne - 1);
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne + 1);
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne + 1);
               break;
               
             case "crab": 
-            ajouterCoordonnees(déplacementPossibles, ligne , colonne+2);
-            ajouterCoordonnees(déplacementPossibles, ligne, colonne-2 );
-            ajouterCoordonnees(déplacementPossibles, ligne+1 , colonne );
+            ajouterCoordonnees(déplacementPossibles, ligne , colonne + 2);
+            ajouterCoordonnees(déplacementPossibles, ligne, colonne - 2 );
+            ajouterCoordonnees(déplacementPossibles, ligne - 1 , colonne );
             break;
             
             case "crane" : 
-            ajouterCoordonnees(déplacementPossibles, ligne +1, colonne);
-            ajouterCoordonnees(déplacementPossibles, ligne-1, colonne + 1);
-            ajouterCoordonnees(déplacementPossibles, ligne -1, colonne -1);
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne);
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne + 1);
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne - 1);
             break;
             
             case "dragon":
-            ajouterCoordonnees(déplacementPossibles, ligne -1, colonne+1);
-            ajouterCoordonnees(déplacementPossibles, ligne+2, colonne + 2);
-            ajouterCoordonnees(déplacementPossibles, ligne +2, colonne -2);   
-            ajouterCoordonnees(déplacementPossibles, ligne -1, colonne -1); 
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne + 2);
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne - 2);
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne + 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne - 1); 
             break;
             
             case "eel": 
-            ajouterCoordonnees(déplacementPossibles, ligne, colonne +1); 
-            ajouterCoordonnees(déplacementPossibles, ligne +1, colonne-1);   
-            ajouterCoordonnees(déplacementPossibles, ligne -1, colonne -1);
+            ajouterCoordonnees(déplacementPossibles, ligne, colonne + 1); 
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne - 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne - 1);
             break;
             
             case "elephant": 
-            ajouterCoordonnees(déplacementPossibles, ligne , colonne +1);   
-            ajouterCoordonnees(déplacementPossibles, ligne , colonne -1);  
-            ajouterCoordonnees(déplacementPossibles, ligne +1,colonne -1);   
-            ajouterCoordonnees(déplacementPossibles, ligne +1, colonne +1);
+            ajouterCoordonnees(déplacementPossibles, ligne , colonne + 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne , colonne - 1);  
+            ajouterCoordonnees(déplacementPossibles, ligne - 1,colonne - 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne + 1);
             break;
             
             case "frog":
-            ajouterCoordonnees(déplacementPossibles, ligne-1 , colonne +1);   
-            ajouterCoordonnees(déplacementPossibles, ligne-1 , colonne -1);  
-            ajouterCoordonnees(déplacementPossibles, ligne ,colonne -2);   
+            ajouterCoordonnees(déplacementPossibles, ligne + 1 , colonne + 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne - 1 , colonne - 1);  
+            ajouterCoordonnees(déplacementPossibles, ligne ,colonne - 2);   
             break ; 
             
             case "goose":
-            ajouterCoordonnees(déplacementPossibles, ligne , colonne +1);   
-            ajouterCoordonnees(déplacementPossibles, ligne , colonne -1);  
-            ajouterCoordonnees(déplacementPossibles, ligne +1,colonne -1);   
-            ajouterCoordonnees(déplacementPossibles, ligne -1, colonne +1);
+            ajouterCoordonnees(déplacementPossibles, ligne , colonne + 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne , colonne - 1);  
+            ajouterCoordonnees(déplacementPossibles, ligne + 1,colonne + 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne - 1);
             break;
             
             case "horse":
-            ajouterCoordonnees(déplacementPossibles, ligne +1, colonne );   
-            ajouterCoordonnees(déplacementPossibles, ligne -1 , colonne) ;  
-            ajouterCoordonnees(déplacementPossibles, ligne ,colonne -1);   
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne );   
+            ajouterCoordonnees(déplacementPossibles, ligne - 1 , colonne) ;  
+            ajouterCoordonnees(déplacementPossibles, ligne ,colonne - 1);   
             break;
             
             case "mantis":
-            ajouterCoordonnees(déplacementPossibles, ligne +1, colonne +1);   
-            ajouterCoordonnees(déplacementPossibles, ligne +1, colonne -1);  
-            ajouterCoordonnees(déplacementPossibles, ligne -1,colonne );   
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne);   
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne - 1);  
+            ajouterCoordonnees(déplacementPossibles, ligne - 1,colonne + 1);   
             break;
             
             case "monkey":
-            ajouterCoordonnees(déplacementPossibles, ligne +1, colonne +1);   
-            ajouterCoordonnees(déplacementPossibles, ligne +1, colonne -1);  
-            ajouterCoordonnees(déplacementPossibles, ligne -1,colonne -1);   
-            ajouterCoordonnees(déplacementPossibles, ligne -1, colonne +1);
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne + 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne - 1);  
+            ajouterCoordonnees(déplacementPossibles, ligne - 1,colonne - 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne + 1);
             break;
             
             case "ox":
-            ajouterCoordonnees(déplacementPossibles, ligne+1 , colonne );   
-            ajouterCoordonnees(déplacementPossibles, ligne+1 , colonne );  
-            ajouterCoordonnees(déplacementPossibles, ligne ,colonne +1);
+            ajouterCoordonnees(déplacementPossibles, ligne + 1 , colonne);   
+            ajouterCoordonnees(déplacementPossibles, ligne - 1 , colonne);  
+            ajouterCoordonnees(déplacementPossibles, ligne ,colonne + 1);
             break;
             
             case "tiger":
-            ajouterCoordonnees(déplacementPossibles, ligne +2, colonne );   
-            ajouterCoordonnees(déplacementPossibles, ligne -1, colonne ); 
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne );   
+            ajouterCoordonnees(déplacementPossibles, ligne - 2, colonne ); 
             break;
             
             case "rabbit":
-            ajouterCoordonnees(déplacementPossibles, ligne+1 , colonne +1);   
-            ajouterCoordonnees(déplacementPossibles, ligne , colonne -2);  
-            ajouterCoordonnees(déplacementPossibles, ligne -1,colonne -1);   
+            ajouterCoordonnees(déplacementPossibles, ligne + 1 , colonne - 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne, colonne + 2);  
+            ajouterCoordonnees(déplacementPossibles, ligne - 1,colonne + 1);   
             break;
             
             case "rooster":
-            ajouterCoordonnees(déplacementPossibles, ligne , colonne +1);   
-            ajouterCoordonnees(déplacementPossibles, ligne , colonne -1);  
-            ajouterCoordonnees(déplacementPossibles, ligne -1,colonne -1);   
-            ajouterCoordonnees(déplacementPossibles, ligne +1, colonne +1);
+            ajouterCoordonnees(déplacementPossibles, ligne , colonne + 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne , colonne - 1);  
+            ajouterCoordonnees(déplacementPossibles, ligne - 1,colonne + 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne - 1);
+            break;
+        }
+        return déplacementPossibles;
+    }
+    
+    public ArrayList deplacement_possible_rouge(int ligne, int colonne) {
+        ArrayList<ArrayList<Integer>> déplacementPossibles = new ArrayList<ArrayList<Integer>>();
+
+        switch (this.nom) {
+            case "boar":
+            ajouterCoordonnees(déplacementPossibles, ligne, colonne + 1);
+            ajouterCoordonnees(déplacementPossibles, ligne, colonne - 1);
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne);
+              break;
+            
+            case "cobra": 
+            ajouterCoordonnees(déplacementPossibles, ligne, colonne + 1);
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne - 1);
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne - 1);
+              break;
+              
+            case "crab": 
+            ajouterCoordonnees(déplacementPossibles, ligne , colonne - 2);
+            ajouterCoordonnees(déplacementPossibles, ligne, colonne + 2 );
+            ajouterCoordonnees(déplacementPossibles, ligne + 1 , colonne );
+            break;
+            
+            case "crane" : 
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne);
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne - 1);
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne + 1);
+            break;
+            
+            case "dragon":
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne - 2);
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne + 2);
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne - 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne + 1); 
+            break;
+            
+            case "eel": 
+            ajouterCoordonnees(déplacementPossibles, ligne, colonne - 1); 
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne + 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne + 1);
+            break;
+            
+            case "elephant": 
+            ajouterCoordonnees(déplacementPossibles, ligne , colonne - 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne , colonne + 1);  
+            ajouterCoordonnees(déplacementPossibles, ligne + 1,colonne + 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne - 1);
+            break;
+            
+            case "frog":
+            ajouterCoordonnees(déplacementPossibles, ligne - 1 , colonne - 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne + 1 , colonne + 1);  
+            ajouterCoordonnees(déplacementPossibles, ligne ,colonne + 2);   
+            break ; 
+            
+            case "goose":
+            ajouterCoordonnees(déplacementPossibles, ligne , colonne - 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne , colonne + 1);  
+            ajouterCoordonnees(déplacementPossibles, ligne - 1,colonne - 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne + 1);
+            break;
+            
+            case "horse":
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne );   
+            ajouterCoordonnees(déplacementPossibles, ligne + 1 , colonne) ;  
+            ajouterCoordonnees(déplacementPossibles, ligne ,colonne + 1);   
+            break;
+            
+            case "mantis":
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne);   
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne + 1);  
+            ajouterCoordonnees(déplacementPossibles, ligne + 1,colonne - 1);   
+            break;
+            
+            case "monkey":
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne - 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne + 1);  
+            ajouterCoordonnees(déplacementPossibles, ligne + 1,colonne + 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne + 1, colonne - 1);
+            break;
+            
+            case "ox":
+            ajouterCoordonnees(déplacementPossibles, ligne - 1 , colonne);   
+            ajouterCoordonnees(déplacementPossibles, ligne + 1 , colonne);  
+            ajouterCoordonnees(déplacementPossibles, ligne ,colonne - 1);
+            break;
+            
+            case "tiger":
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne );   
+            ajouterCoordonnees(déplacementPossibles, ligne + 2, colonne ); 
+            break;
+            
+            case "rabbit":
+            ajouterCoordonnees(déplacementPossibles, ligne - 1 , colonne + 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne, colonne - 2);  
+            ajouterCoordonnees(déplacementPossibles, ligne + 1,colonne - 1);   
+            break;
+            
+            case "rooster":
+            ajouterCoordonnees(déplacementPossibles, ligne , colonne - 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne , colonne + 1);  
+            ajouterCoordonnees(déplacementPossibles, ligne + 1,colonne - 1);   
+            ajouterCoordonnees(déplacementPossibles, ligne - 1, colonne + 1);
             break;
         }
         return déplacementPossibles;
