@@ -5,6 +5,7 @@
 package projet_onitama;
 
 import java.awt.BorderLayout;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.List;
 import java.awt.event.ActionEvent;
@@ -30,25 +31,31 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     GrilleDeJeu grille;
     int i;
     ArrayList<Cartes2> cartesTirees;
-    ArrayList<Integer> coordonneesPionSelectionnée; 
+    private Pions PionSelectionné;
+    Cartes2 carteSelectionnée;
+    
 
     /**
      * Creates new form Fenetre_Principale
      */
     public Fenetre_Principale() {
         initComponents();
-        this.coordonneesPionSelectionnée=null;
+       // coordonneesPionSelectionnée=null;
+        //carteSelectionnée=null;
+        tirageCartes();
+        affichageCartes();
         this.grille = new GrilleDeJeu(5, 5);
         PanneauGrille.setLayout(new GridLayout(5, 5));
         getContentPane().add(PanneauGrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 5 * 40, 5 * 40));
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
+               
                 CaseGrilleGraphique bouton_case = new CaseGrilleGraphique(grille.matriceCellules[i][j]);
                 bouton_case.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        coordonneesPionSelectionnée=bouton_case.onClick();
-                        System.out.print(coordonneesPionSelectionnée);//ligne de test
+                        PionSelectionné=bouton_case.onClick();
+                        System.out.print(PionSelectionné);//ligne de test
                     }
                 });
                 PanneauGrille.add(bouton_case); // ajout au Jpanel PanneauGrille
@@ -57,7 +64,9 @@ public class Fenetre_Principale extends javax.swing.JFrame {
 
         PanneauCartesHaut.setLayout(new GridLayout(1, 2));
         getContentPane().add(PanneauCartesHaut, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70));
-
+        PanneauCartesBas.setLayout(new GridLayout(1, 2));
+        getContentPane().add(PanneauCartesBas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 2 * 40, 1 * 40));
+/*
         // création du panneau de boutons verticaux (pour les lignes)
         for (i = 0; i < 2; i++) {
             //ImageIcon dragonImage=new ImageIcon("C:\\Users\\marie\\Documents\\EPF\\2A\\CPO\\cartes onitama.jpg");
@@ -70,9 +79,9 @@ public class Fenetre_Principale extends javax.swing.JFrame {
 
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    //grille.activerLigneDeCellules(j);
-                    repaint();
-                    //VerificationCellulesEteintes();
+                    
+                  
+                    
                 }
             };
             JRcarte1.addActionListener(ecouteurClick);
@@ -85,26 +94,22 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         this.revalidate();
         // création du panneau de boutons verticaux (pour les lignes)
         for (i = 0; i < 2; i++) {
-            JButton JBcarte1 = new JButton();
-            JButton JBcarte2 = new JButton();
-            //JRcarte1.setText("→");
+            JButton JBcarte = new JButton();
+            final int indiceCarte = i;
             ActionListener ecouteurClick = new ActionListener() {
-                final int j = i;
-
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    //grille.activerLigneDeCellules(j);
-                    repaint();
-                    //VerificationCellulesEteintes();
+                     carteSelectionnée=cartesTirees.get(indiceCarte);
+                     System.out.println("Coordonnées du pion : " + PionSelectionné);
+                     System.out.println(carteSelectionnée.deplacementVraimentsPossibles(carteSelectionnée.deplacement_possible(PionSelectionné.getPosition_ligne(),PionSelectionné.getPosition_colonne()), PionSelectionné.getPosition_ligne(), PionSelectionné.getPosition_colonne() ));
                 }
             };
-            JBcarte1.addActionListener(ecouteurClick);
-            JBcarte2.addActionListener(ecouteurClick);
+             JBcarte1.addActionListener(ecouteurClick);
+             JBcarte2.addActionListener(ecouteurClick);
             //PanneauCartesHaut.add(bouton_ligne);
 
-        }
-        tirageCartes();
-        affichageCartes();
+        }*/
+        
     }
 
     /**
@@ -147,7 +152,7 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         nomCartes.add("boar");
         nomCartes.add("cobra");
         nomCartes.add("crab");
-        nomCartes.add("cane");
+        nomCartes.add("crane");
         nomCartes.add("dragon");
         nomCartes.add("eel");
         nomCartes.add("elephant");
@@ -207,7 +212,13 @@ public class Fenetre_Principale extends javax.swing.JFrame {
             return null;
         }
     }
-
+    public void Allumer(ArrayList<ArrayList<Integer>> CoordonneePossible){
+        for (int i = 0 ; i<CoordonneePossible.size(); i++){
+            Graphics Graphics;
+            //grille.matriceCellules[1][1]
+        }
+    }
+    
     /*public String tirerCarteAleatoire() {
         
     }*/
@@ -396,6 +407,9 @@ public class Fenetre_Principale extends javax.swing.JFrame {
 
     private void JBcarte2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBcarte2ActionPerformed
         // TODO add your handling code here:
+        carteSelectionnée=cartesTirees.get(3);
+                     System.out.println("Coordonnées du pion : " + PionSelectionné);
+                     System.out.println(carteSelectionnée.deplacementVraimentsPossibles(carteSelectionnée.deplacement_possible(PionSelectionné.getPosition_ligne(),PionSelectionné.getPosition_colonne()), PionSelectionné.getPosition_ligne(), PionSelectionné.getPosition_colonne() ));
     }//GEN-LAST:event_JBcarte2ActionPerformed
 
     private void JRcarte2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRcarte2ActionPerformed
@@ -408,11 +422,17 @@ public class Fenetre_Principale extends javax.swing.JFrame {
 
     private void JRcarte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JRcarte1ActionPerformed
         // TODO add your handling code here:
-        //deplacementVraimentsPossibles(deplacement_possible(coordonneesPionSelectionnée.get(0), coordonneesPionSelectionnée.get(1)));
+        
     }//GEN-LAST:event_JRcarte1ActionPerformed
 
     private void JBcarte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBcarte1ActionPerformed
-        // TODO add your handling code here:
+ carteSelectionnée=cartesTirees.get(3);
+                     System.out.println("Coordonnées du pion : " + PionSelectionné);
+                     ArrayList<ArrayList<Integer>> déplacementPossibles = new ArrayList<ArrayList<Integer>>();
+                     déplacementPossibles= carteSelectionnée.deplacementVraimentsPossibles(carteSelectionnée.deplacement_possible(PionSelectionné.getPosition_ligne(),PionSelectionné.getPosition_colonne()), PionSelectionné.getPosition_ligne(), PionSelectionné.getPosition_colonne() );
+                     System.out.println(carteSelectionnée.deplacementVraimentsPossibles(carteSelectionnée.deplacement_possible(PionSelectionné.getPosition_ligne(),PionSelectionné.getPosition_colonne()), PionSelectionné.getPosition_ligne(), PionSelectionné.getPosition_colonne() ));        
+                     //CaseGrilleGraphique caseGraphique = getCaseGrilleGraphique(PionSelectionné.getPosition_ligne(), PionSelectionné.getPosition_colonne());
+
     }//GEN-LAST:event_JBcarte1ActionPerformed
 
     private void BcartecoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BcartecoteActionPerformed
