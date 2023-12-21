@@ -19,6 +19,11 @@ public class CaseGrilleGraphique extends JButton {
     boolean etat;
     Pions pion_associe;
     
+    /**
+     * 
+     * @param etat
+     * @param pion_associe
+     */
     public CaseGrilleGraphique(boolean etat, Pions pion_associe) {
         this.etat = etat;
         this.pion_associe = pion_associe;
@@ -51,23 +56,35 @@ public class CaseGrilleGraphique extends JButton {
         }
     }
 
+    /**
+     * Prend rien en entrée et renvoie l'état de etat
+     * @return
+     */
     public boolean getEtat() {
         return etat;
     }
 
+    /**
+     * Prend rien en entrée et renvoie le pion associee 
+     * @return
+     */
     public Pions getPion_associe() {
         return pion_associe;
     }
     
-    
-    
-    
-    
-
+    /**
+     * 
+     * @param caseGrilleAssociee
+     */
     public CaseGrilleGraphique(CaseGrille caseGrilleAssociee) {
         this.caseGrilleAssociee = caseGrilleAssociee;
     }
     
+    /**
+     * Cette méthode est appelée automatiquement chaque fois que le composant doit être redessiné.
+     * Elle est responsable du dessin du composant en fonction de l'état de la case associée.
+     * @param g 
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -99,10 +116,21 @@ public class CaseGrilleGraphique extends JButton {
             g.fillOval(2, 2, longueur - 4, hauteur - 4);
         }
     }
+
+    /**
+     * Méthode appelée après un clic sur un élément graphique associé à un pions .
+     * Renvoie l'objet Pions associé à la case de la grille au moment du clic.
+     * @return
+     */
     public Pions onClick() {
         Pions pionSelectionne=caseGrilleAssociee.getPion_associe();
         return pionSelectionne;
     }
+    
+    /**
+     * Met en évidence les coordonnées spécifiées en dessinant des rectangles verts autour d'elles.
+     * @param CoordonneePossible Une liste de listes d'entiers représentant les coordonnées à mettre en évidence.
+     */
     public void mettreEnEvidence(ArrayList<ArrayList<Integer>> CoordonneePossible){
         Graphics g = getGraphics();
         for (int i = 0; i<CoordonneePossible.size(); i++){

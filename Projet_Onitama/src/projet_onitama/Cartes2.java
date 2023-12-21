@@ -14,10 +14,20 @@ public class Cartes2 {
 
     String nom;
 
+    /**
+     * Constructeur de Cartes2
+     * @param nom
+     */
     public Cartes2(String nom) {
         this.nom = nom;
     }
 
+    /**
+     * Calcule les coordonnées de déplacement possibles pour un pion bleu en fonction de sa nature.
+     * @param ligne
+     * @param colonne
+     * @return
+     */
     public ArrayList deplacement_possible_bleu(int ligne, int colonne) {
         ArrayList<ArrayList<Integer>> déplacementPossibles = new ArrayList<ArrayList<Integer>>();
 
@@ -125,6 +135,12 @@ public class Cartes2 {
         return déplacementPossibles;
     }
     
+    /**
+     * Calcule les coordonnées de déplacement possibles pour un pion bleu en fonction de sa nature.
+     * @param ligne
+     * @param colonne
+     * @return
+     */
     public ArrayList deplacement_possible_rouge(int ligne, int colonne) {
         ArrayList<ArrayList<Integer>> déplacementPossibles = new ArrayList<ArrayList<Integer>>();
 

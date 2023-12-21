@@ -35,7 +35,8 @@ public class Fenetre_Principale extends javax.swing.JFrame {
     Cartes2 carteSelectionnée;
 
     /**
-     * Creates new form Fenetre_Principale
+     * Constructeur de la fenêtre principale.
+     * Initialise les composants graphiques, la grille de jeu, et configure les interactions des boutons de la grille.
      */
     public Fenetre_Principale() {
         initComponents();
@@ -75,40 +76,12 @@ public class Fenetre_Principale extends javax.swing.JFrame {
  //Allumer(test);
     }
 
+    
+
     /**
      * Méthode qui tire 5 cartes aléatoirement
-     *
-     * @return un arraylist contenant les 5 cartes
+     * 
      */
-    public ArrayList tirerCartesAléatoire() {
-        ArrayList<String> tab = new ArrayList<String>();
-        tab.add("Boar");
-        tab.add("Cobra");
-        tab.add("Crab");
-        tab.add("Crane");
-        tab.add("Dragon");
-        tab.add("Eel");
-        tab.add("Elephant");
-        tab.add("Frog");
-        tab.add("Goose");
-        tab.add("Horse");
-        tab.add("Mantis");
-        tab.add("Monkey");
-        tab.add("Ox");
-        tab.add("Rabbit");
-        tab.add("Rooster");
-        tab.add("Tiger");
-        ArrayList<String> cartes_tirees = new ArrayList<String>();
-        Random random = new Random();
-        for (int i = 0; i < 5; i++) {
-            int temp = random.nextInt(16 - i);
-            String carte_temp = tab.get(temp);
-            cartes_tirees.add(carte_temp);
-            tab.remove(carte_temp);
-        }
-        return cartes_tirees;
-    }
-
     public void tirageCartes() {
         ArrayList<Cartes2> cartesTirees = new ArrayList<Cartes2>();
         ArrayList<String> nomCartes = new ArrayList<String>();
@@ -138,6 +111,11 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         this.cartesTirees = cartesTirees;
     }
 
+    /**
+     * Méthode qui Affiche les cartes tirées sur les composants graphiques appropriés.
+     * Utilise les icônes d'images spécifiées par le nom de chaque carte.
+     * 
+     */
     public void affichageCartes() {
 
         for (int j = 0; j < cartesTirees.size(); j++) {
@@ -176,6 +154,10 @@ public class Fenetre_Principale extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Allume (met en évidence) les cellules de la grille aux coordonnées spécifiées.
+     * @param CoordonneePossible
+     */
     public void Allumer(ArrayList<ArrayList<Integer>> CoordonneePossible) {
         for (int i = 0; i < CoordonneePossible.size(); i++) {
             Graphics Graphics;

@@ -17,6 +17,13 @@ public class Pions {
     private boolean Mort;
     private String couleur;  //R pour rouge et B pour bleu
 
+    /**
+     * Constructeur de Pions, initialise la positions des pions
+     * @param position_ligne
+     * @param position_colonne
+     * @param eleve
+     * @param couleur
+     */
     public Pions(int position_ligne, int position_colonne, boolean eleve, String couleur) {
         this.position_ligne = position_ligne;
         this.position_colonne = position_colonne;
@@ -26,18 +33,34 @@ public class Pions {
   
     }
 
+    /**
+     * Récupère la position en ligne du pion.
+     * @return
+     */
     public int getPosition_ligne() {
         return position_ligne;
     }
 
+    /**
+     * Récupère la position en colonne du pion.
+     * @return
+     */
     public int getPosition_colonne() {
         return position_colonne;
     }
 
+    /**
+     * Vérifie si le pion est un eleve.
+     * @return
+     */
     public boolean estEleve() {
         return eleve;
     }
 
+    /**
+     * Récupère la couleur du pion
+     * @return
+     */
     public String getCouleur() {
         return couleur;
     }
@@ -48,8 +71,12 @@ public class Pions {
         
     }*/
     
-    
-    
+    /**
+     * Vérifie si les coordonnées spécifiées se trouvent dans les limites de la grille de jeu. 
+     * @param ligne
+     * @param colonne
+     * @return
+     */
     public boolean verif_position(int ligne, int colonne){
         if (ligne>4 || colonne>4 || ligne<0 || colonne<0){
             return false;
@@ -58,6 +85,11 @@ public class Pions {
             return true;
     }
     
+    /**
+     * Change les coordonnées du pion en les mettant à jour avec les nouvelles valeurs spécifiées
+     * @param ligne
+     * @param colonne
+     */
     public void changement_coord (int ligne, int colonne){
         if (verif_position(ligne, colonne)==true){
             this.position_colonne=colonne;
@@ -65,10 +97,20 @@ public class Pions {
         }   
     }
     
+    /**
+     * Marque le pion comme étant mort.
+     */
     public void MortDuPion(){
         this.Mort=true;
     }
     
+    /**
+     * Vérifie si le pion peut se déplacer vers les coordonnées spécifiées.
+     * @param pion
+     * @param ligne_visee
+     * @param colonne_visee
+     * @return
+     */
     public boolean VerifierSiPeutSeDeplacer (Pions pion, int ligne_visee, int colonne_visee) {
         if (verif_position(ligne_visee, colonne_visee) == true) {
             if (matriceCellules[ligne_visee][colonne_visee].pion_associe == null) {

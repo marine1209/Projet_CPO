@@ -54,6 +54,15 @@ public class GrilleDeJeu {
 
 }
 }
+
+    /**
+     * Méthode qui Vérifie si un pion peut manger un pion adverse en fonction des coordonnées spécifiées.
+     * @param ligneAdversaire
+     * @param colonneAdversaire
+     * @param ligneAttaquant
+     * @param colonneAttaquant
+     * @return
+     */
     public boolean peuxManger (int ligneAdversaire, int colonneAdversaire, int ligneAttaquant, int colonneAttaquant){
         if (matriceCellules[ligneAdversaire][colonneAdversaire].estOccupee()==false){
             return false;

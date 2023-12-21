@@ -17,10 +17,20 @@ public class CaseGrille {
     boolean etat;
     Pions pion_associe;
     
+    /**
+     * Constructeur de CaseGrille avec un pion associe
+     * @param etat
+     * @param pion_associe
+     */
     public CaseGrille(boolean etat, Pions pion_associe) {
         this.etat = etat;
         this.pion_associe = pion_associe;
     }
+
+    /**
+     * Constructeur de la classe CaseGrille sans pion associé.
+     * @param etat
+     */
     public CaseGrille(boolean etat) {
         this.etat = etat;
         this.pion_associe = null; // Pas de pion associé dans ce cas
@@ -49,15 +59,27 @@ public class CaseGrille {
         }
     }
 
+    /**
+     * Récupère l'état de la case.
+     * @return
+     */
     public boolean getEtat() {
         return etat;
     }
 
+    /**
+     * Récupère le pion associé à la case.
+     * @return
+     */
     public Pions getPion_associe() {
         return pion_associe;
     }
     
-   public void mettreEnEvidence(ArrayList<ArrayList<Integer>> CoordonneePossible){
+    /**
+     * Met en évidence les cellules de la grille aux coordonnées spécifiées en les entourant d'un carré vert.
+     * @param CoordonneePossible
+     */
+    public void mettreEnEvidence(ArrayList<ArrayList<Integer>> CoordonneePossible){
         Graphics g = getGraphics();
         for (int i = 0; i<CoordonneePossible.size(); i++){
             int ligne = CoordonneePossible.get(i).get(0); 
